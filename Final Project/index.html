@@ -4,37 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--mobile first css from W3schools-->
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="./css/main.css" type="text/css"/>
+    <!--mobile first design tips from W3schools-->
+    <!--icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/theme.css" type="text/css"/>
+    <link rel="stylesheet" href="./css/index.css" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/theme.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <div class="w3-bar primary" id=navbar>
-        <a href="#" class="w3-bar-item w3-button w3-mobile">Home</a>
-        <a href="#" class="w3-bar-item w3-button w3-mobile">Projects</a>
-        <a href="#" class="w3-bar-item w3-button w3-mobile">Link 2</a>
-        <div class="w3-dropdown-hover w3-mobile">
-            <button class="w3-button">Admin Tools <i class="fa fa-caret-down"></i></button>
-            <div class="w3-dropdown-content w3-bar-block w3-dark-white">
-                <a href="#" class="w3-bar-item w3-button w3-mobile">New Project</a>
-                <a href="#" class="w3-bar-item w3-button w3-mobile">View Projects</a>
-                <a href="#" class="w3-bar-item w3-button w3-mobile warning">Log Out</a>
+<!-- Top Navigation Menu -->
+<div class="topnav primary">
+    <a href="#home" id="home" class="active">Home</a>
+    <div class="myLinks">
+        <a href="#">Projects</a>
+        <div class="dropdown">
+            <button class="dropbtn nav-tool">Admin Tools
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div id="admin" class="dropdown-content tools">
+                <a href="#">New Project</a>
+                <a href="#">View Projects</a>
+                <a href="#" class="warning">Log Out</a>
             </div>
         </div>
-        <a href="#" class="w3-bar-item w3-button w3-right">Login</a>
+        <a href="#" class="right">Login</a>
     </div>
-
-    <div class="w3-row" id="masthead">
-        <div class="w3-container w3-half w3-black">
-            <img src="./assets/Miller1.jpg" alt="Colby College">
-        </div>
-        <div class="w3-container w3-half w3-black">
-            <h1>Professor Stacy Doore's<br />
-                CS 330 & CS430 project gallery.</h1>
-        </div>
+    <i class="fa fa-bars fa-3x" id="mobile-menu"></i>
+</div>
+    <div  id="masthead">
+        <img src="./assets/Miller1.jpg" alt="Colby College">
+        <h1>Professor Stacy Doore's<br />
+            CS 330 & CS430 project gallery.</h1>
     </div>
-
     <div class="primary">
         <p>This website serves as a directory of projects completed
             in professor Stacy Doore’s database sequence at Colby College</p>
@@ -43,8 +46,5 @@
             CS430: Advanced Database Design, Development, and Deployment
         </div>
     </div>
-
-    
-    
 </body>
 </html>
