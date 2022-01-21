@@ -1,0 +1,26 @@
+.new-project {
+    width: 60%;
+    padding: 0.5em 0px;
+    margin-top: 1.5em;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    text-align: center;
+    /* deal with centering stuff later */
+    border-radius: 0.25em;
+}
+
+.new-project fieldset {
+    border: none;
+}
+
+.new-project label {
+    font-size: 1.25em;
+}
+
+.new-project input, select {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-size: 1.125em;
+}
