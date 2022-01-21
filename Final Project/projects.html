@@ -8,11 +8,11 @@
     <!--icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/theme.css" type="text/css"/>
-    <link rel="stylesheet" href="./css/login.css" type="text/css"/>
+    <!-- <link rel="stylesheet" href= type="text/css"/> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/theme.js"></script>
-    <script src="js/login.js"></script>
-    <title>Log In</title>
+    <!-- <script src= ></script> -->
+    <title>Projects</title>
 </head>
 <body>
     <!-- Top Navigation Menu -->
@@ -30,29 +30,52 @@
                 <a href="#" class="warning">Log Out</a>
             </div>
         </div>
+        <a href="./authenticate.html" class="right">Login</a>
     </div>
     <i class="fa fa-bars fa-3x" id="mobile-menu"></i>
 </div>
 
-<form class="sign-in">
-    <fieldset>
-        <legend> Database Admin Sign In</legend>
-        <label for="email">Email: </label>
-        <input id="email" type="email" /> <br />
-        <label for="password">Password: </label>
-        <input id="password" type="password" /><br />
-        <input type="checkbox" id="reveal"> show password </input> <br />
-        <button id="submit" class="primary"> Submit </button>
-    </fieldset>
+<div id="projects">
+
+    <!--   for every 3 projects-->
+    <div class="row">
+        <!--   for every project-->
+        <div class="card secondary">
+            <h2>Project Name<h2>
+            <pre>Team-members 
+                Summary
+                Database
+                Backend
+                Frontend 
+                Description
+            </pre>
+        </div>
+        <div class="card secondary">
+            <h2>Project Name<h2>
+            <pre>Team-members 
+                Summary
+                Database
+                Backend
+                Frontend 
+                Description
+            </pre>
+        </div>
+        <div class="col">
+            <div class="card secondary">
+            <h2>Project Name<h2>
+            <pre>Team-members 
+                Summary
+                Database
+                Backend
+                Frontend 
+                Description
+            </pre>
+            </div>
+        </div>
+    </div>
 
 
-
-
-
-</form>
-
-
-
-
+</div>
+    
 </body>
 </html>
