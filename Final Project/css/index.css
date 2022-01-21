@@ -1,8 +1,25 @@
 h1{
     font-size: 18pt;
+    background-color: black;
+    color:white;
+    margin: 0%;
+    padding: 0%;
+    padding-top: 1%;
+    padding-bottom: 5%;
+}
+
+.main{
+    padding-top: 1%;
+    padding-bottom: 5%;
+}
+
+body{
+    background-color: black !important;
 }
 
 img{
     width: 100%;
     height: auto;
+    margin: 0%;
+    padding: 0%;
 }
