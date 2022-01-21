@@ -1,0 +1,26 @@
+.login-content {
+    width: 60%;
+    padding: 0.5em 0px;
+    margin-top: 1.5em;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    text-align: center;
+    /* deal with centering stuff later */
+    border-radius: 0.25em;
+}
+
+.login-content fieldset {
+    border: none;
+}
+
+.login-content label {
+    font-size: 1.25em;
+}
+
+.login-content input {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-size: 1.125em;
+}
