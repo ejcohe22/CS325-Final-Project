@@ -143,3 +143,17 @@ should open and close the topnav (.icon) */
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+.row{
+  display: flex;
+  margin:0%;
+  padding:0%;
+}
+
+.col{
+  flex: 1;
+}
+
+.card{
+  margin:5%;
+}

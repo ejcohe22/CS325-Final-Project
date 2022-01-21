@@ -9,4 +9,7 @@ $(document).ready(function(){
             $(".myLinks").css('display', 'none');
         }
     });
+    if($("#mobile-menu").css('display')=='none'){
+        $(".myLinks").css('display', 'inline-block');
+    }
 });
