@@ -4,7 +4,7 @@ session_start();
 
 // check if POST method was sent; if so, check if login credentals are valid
 if( isset($_POST['email']) && isset($_POST['password']) ) {
-    $db = new PDO("mysql:dbname=ProjectCollection;host=localhost", "sam", "blueMooN#101");
+    $db = new PDO("mysql:dbname=ProjectCollection;host=localhost", "mysql_username", "mysql_password");
     $rows = $db->query("SELECT * FROM Administrators WHERE email=\"" . $_POST['email'] . "\" AND password=\"" . $_POST['password'] . "\"");
     // foreach($rows as $row) {
     //     echo "<p style='color: white'>" . $row['email'] . "</p>";        
