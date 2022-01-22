@@ -25,7 +25,7 @@
 <body>
 <!-- Top Navigation Menu -->
 <div class="topnav primary">
-    <a href="./index.html" id="home" class="active">Home</a>
+    <a href="./index.php" id="home" class="active">Home</a>
     <div class="myLinks">
         <a href="./projects.php">Projects</a>
         <div class="dropdown">
@@ -39,7 +39,7 @@
             </div>
         </div>
         <a href="./project_view.php">Project View</a>
-        <a href="./authenticate.html" class="right">Login</a>
+        <a href="./authenticate.php" class="right">Login</a>
     </div>
     <i class="fa fa-bars fa-3x" id="mobile-menu"></i>
 </div>
