@@ -34,25 +34,16 @@
     <i class="fa fa-bars fa-3x" id="mobile-menu"></i>
 </div>
 
-<form class="sign-in">
+<form class="sign-in" action="authenticate.php" method="post">
     <fieldset>
         <legend> Database Admin Sign In</legend>
         <label for="email">Email: </label>
-        <input id="email" type="email" /> <br />
+        <input id="email" type="email" name="email" /> <br />
         <label for="password">Password: </label>
-        <input id="password" type="password" /><br />
+        <input id="password" type="password" name="password" /><br />
         <input type="checkbox" id="reveal"> show password </input> <br />
         <button id="submit" class="primary"> Submit </button>
     </fieldset>
-
-
-
-
-
 </form>
-
-
-
-
 </body>
 </html>
