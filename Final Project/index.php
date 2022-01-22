@@ -1,6 +1,4 @@
-<?php 
-    session_start(); 
-?>
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,9 +18,16 @@
     <title>CS330/CS340 Gallery</title>
 
     <?php
+        echo "<p style='color: white'>" . print_r($_SESSION, true) . "</p>";
     ?>
 </head>
 <body>
+<?php if( isset($_SESSION['is_login']) && $_SESSION['is_login'] == 0 ) { ?>
+<div class="logout-bar">
+    <p>You have successfully logged out.</p>
+</div>
+<?php } ?>
+
 <!-- Top Navigation Menu -->
 <div class="topnav primary">
     <a href="./index.html" id="home" class="active">Home</a>
@@ -35,7 +40,7 @@
             <div id="admin" class="dropdown-content tools">
                 <a href="#">New Project</a>
                 <a href="#">User Administration</a>
-                <a href="#" class="warning">Log Out</a>
+                <a href="./logout.php" class="warning">Log Out</a>
             </div>
         </div>
         <a href="./project_view.php">Project View</a>
