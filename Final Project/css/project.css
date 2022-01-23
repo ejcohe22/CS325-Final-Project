@@ -1,3 +1,43 @@
 .filters{
-    width:60%;
+    width:350px;
+    border:solid black 8px;
+    position:absolute;
+    display:none;
+}
+
+fieldset{
+    border:none;
+}
+
+#close-filter{
+    float:right;
+    margin-top:5px;
+}
+
+legend{
+    width:100%;
+    font-size:24pt;
+}
+
+h2{
+    font-size:16pt;
+}
+
+.multi-dropdown{
+    margin-left:5%;
+}
+
+label{
+    font-size:12pt;
+}
+
+button{
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: black;
+    padding: 14px 16px;
+    background-color: #C4C4C4;
+    margin: 2%;
+    margin-bottom:0%;
 }
