@@ -8,7 +8,7 @@ $password = null;
 
 // check if POST method was sent; if so, check if login credentals are valid
 if( isset($_POST['email']) && isset($_POST['password']) ) {
-    $db = new PDO("mysql:dbname=ProjectCollection;host=localhost", "sam", "blueMooN#101");
+    $db = new PDO("mysql:dbname=ProjectCollections;host=localhost", "foobar", "hahaha");
     $result = $db->query("SELECT * FROM Administrators WHERE email=\"" . $_POST['email'] . "\" AND password=\"" . $_POST['password'] . "\"")->fetch();
     
     // if query return no results, determine error; otherwise, redirect user to admin home page
@@ -51,7 +51,7 @@ if( isset($_POST['email']) && isset($_POST['password']) ) {
 <div class="topnav primary">
     <a href="./index.php" id="home" class="active">Home</a>
     <div class="myLinks">
-        <a href="./projects.html">Projects</a>
+        <a href="./projects.php">Projects</a>
         <div class="dropdown">
             <button class="dropbtn nav-tool">Admin Tools
               <i class="fa fa-caret-down"></i>
