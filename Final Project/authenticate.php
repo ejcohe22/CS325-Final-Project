@@ -1,34 +1,4 @@
-<?php
-session_start();
-// echo "<p style='color: white'>" . print_r($_POST, true) . "</p>";
-
-// set variables needed below
-$email = null;
-$password = null;
-
-// check if POST method was sent; if so, check if login credentals are valid
-if( isset($_POST['email']) && isset($_POST['password']) ) {
-    $db = new PDO("mysql:dbname=ProjectCollections;host=localhost", "foobar", "hahaha");
-    $result = $db->query("SELECT * FROM Administrators WHERE email=\"" . $_POST['email'] . "\" AND password=\"" . $_POST['password'] . "\"")->fetch();
-    
-    // if query return no results, determine error; otherwise, redirect user to admin home page
-    if( !$result ) {
-        $emailq = $db->query("SELECT * FROM Administrators WHERE email=\"" . $_POST['email'] . "\"")->fetch()['email'];
-        $passwordq = $db->query("SELECT * FROM Administrators WHERE email=\"" . $_POST['email'] . "\" AND password=\"" . $_POST['password'] . "\"")->fetch()['password'];
-        if($emailq === null) {
-            $email = "You entered an invalid email. Please make sure to correctly enter your email.";
-        }
-        else if($passwordq === null) {
-            $password = "You entered an invalid password. Please make sure to correctly enter your password.";
-        }
-    }
-    else {
-        $_SESSION['email'] = $result['email'];
-        $_SESSION['is_login'] = 1;
-        header("Location: http://localhost");
-    }
-}
-?>
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -45,6 +15,38 @@ if( isset($_POST['email']) && isset($_POST['password']) ) {
     <script src="js/theme.js"></script>
     <script src="js/login.js"></script>
     <title>Log In</title>
+
+    <?php
+        /* MAKE DATABASE CONNECTION */
+
+        // set variables needed below
+        $email = null;
+        $password = null;
+
+        // check if post method was sent; if so, check if login credentals are valid
+        if( isset($_POST['email']) && isset($_POST['password']) ) {
+            $db = new PDO("mysql:dbname=ProjectCollection;host=localhost", "sam", "blueMooN#101");
+            $result = $db->query("SELECT * FROM Administrators WHERE email=\"" . $_POST['email'] . "\" AND password=\"" . $_POST['password'] . "\"")->fetch();
+            echo "here";
+            
+            // if query return no results, determine error; otherwise, redirect user to admin home page
+            if( !$result ) {
+                $emailq = $db->query("SELECT * FROM Administrators WHERE email=\"" . $_POST['email'] . "\"")->fetch()['email'];
+                $passwordq = $db->query("SELECT * FROM Administrators WHERE email=\"" . $_POST['email'] . "\" and password=\"" . $_POST['password'] . "\"")->fetch()['password'];
+                if($emailq === null) {
+                    $email = "you entered an invalid email. please make sure to correctly enter your email.";
+                }
+                else if($passwordq === null) {
+                    $password = "you entered an invalid password. please make sure to correctly enter your password.";
+                }
+            }
+            else {
+                $_SESSION['email'] = $result['email'];
+                $_SESSION['is_login'] = 1;
+                header("location: http://localhost");
+            }
+        }
+    ?>
 </head>
 <body>
     <!-- Top Navigation Menu -->
