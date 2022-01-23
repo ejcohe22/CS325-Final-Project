@@ -2,5 +2,5 @@
 session_start();
 unset($_SESSION['email']);
 $_SESSION['is_login'] = 0;
-header("Location: http://localhost");
+header("Location: http://localhost:8080");
 ?>
