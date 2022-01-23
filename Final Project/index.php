@@ -51,7 +51,6 @@
             </div>
         </div>
         <?php } ?>
-        <a href="./project_view.php">Project View</a>
         <?php if( !isset( $_SESSION['is_login'] ) || $_SESSION['is_login'] <= 0 ) { ?>
         <a href="./authenticate.php" class="right">Login</a>
         <?php } ?>

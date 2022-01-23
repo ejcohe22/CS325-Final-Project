@@ -94,7 +94,7 @@
 ?>
         <!-- for every project -->
         <div class="card secondary">
-            <h2><?= $project['name'] ?></h2>
+            <h2><a href=<?= "project_view.php?id=" . $id ?>><?= $project['name'] ?></a></h2>
 <?php       foreach($devs as $row) { ?>
             <p class="card-element"><?= $row['fname'] . " " . $row['lname'] ?></p>
             <p class="card-element indent"><?= $row['role'] ?></p>
