@@ -1,6 +1,6 @@
 .filters{
     width:350px;
-    border:solid black 8px;
+    outline:solid 2px black;
     position:absolute;
     display:none;
 }
@@ -31,13 +31,16 @@ label{
     font-size:12pt;
 }
 
-button{
+#filter-btn{
     font-size: 16px;
     border: none;
     outline: none;
+    box-shadow: inset 0px 0px 0px 2px black;
+    border: solid 2px black;
     color: black;
     padding: 14px 16px;
     background-color: #C4C4C4;
     margin: 2%;
     margin-bottom:0%;
+    margin-top:0%;
 }

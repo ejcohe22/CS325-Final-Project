@@ -98,6 +98,11 @@ should open and close the topnav (.icon) */
   position: absolute;
   right:1rem;
 }
+img{
+  display:block;
+  width:20%;
+  margin:auto;
+}
 
 /* Dropdown button */
 .dropdown .dropbtn {
@@ -149,6 +154,7 @@ should open and close the topnav (.icon) */
 
 #grid {
   margin-left:1%;
+  margin-right: 2%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 10px;
@@ -159,8 +165,18 @@ should open and close the topnav (.icon) */
 }
 
 .card{
-  margin:1%;
-  margin-left: 2%;
-  padding-left: 15px;
-  padding-right: 15px;
+  margin:0%;
+  margin-left: 5%;
+  outline: solid 2px black;
+}
+.card>h2{
+  padding-left:5%;
+}
+
+.card>h2:first-child{
+  padding-top:5%;
+  background-color: #002878;
+  border-bottom: 2px solid black;
+  color: white;
+  margin:0%;
 }
