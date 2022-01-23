@@ -3,8 +3,22 @@
     color: black;
     border: solid #E3D7D1 8px;
     margin:20%;
-    margin-top:10%;
+    margin-top:5%;
     padding:2%;
+}
+
+.error-message {
+    position: relative;
+    top: 2em;
+    background-color: white;
+    width: 58%;
+    margin: auto;
+    padding: 0.2em 0.5em;
+    border: solid #E3D7D1 8px;
+}
+
+.error-message p {
+    color: red; /* not well-suited for color blind peopel */
 }
 
 fieldset{

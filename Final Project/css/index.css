@@ -23,3 +23,11 @@ img{
     margin: 0%;
     padding: 0%;
 }
+
+.logout-bar {
+    text-align: center;
+}
+
+.logout-bar p {
+    color: white;
+}
