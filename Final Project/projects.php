@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./css/project.css" type="text/css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/theme.js"></script>
-    <!-- <script src= ></script> -->
+    <script src="js/projects.js" ></script>
     <title>Projects</title>
 </head>
 <body>
@@ -36,11 +36,10 @@
     <i class="fa fa-bars fa-3x" id="mobile-menu"></i>
 </div>
 
-<button id="filters" > Filter <i class="fa fa-filter"></i></button>
+<button id="filter-btn" > Filter <i class="fa fa-filter"></i></button>
 
 <div class="filters">
-    <form class="secondary">  <!-- $('input[type=checkbox]') -->
-    
+    <form class="secondary">
         <fieldset> 
             <legend>Filter Projects <i class="fa fa-chevron-left" id="close-filter"></i></legend>
             <h2>Database:<h2>
@@ -48,6 +47,8 @@
                 <!-- populate with db values using php-->
                 <input type="checkbox" id="mysql" name="mysql" value="db-mysql">
                 <label for="mysql"> MySQL</label><br>
+                <input type="checkbox" id="mongo" name="mongo" value="db-mongo">
+                <label for="mongo"> MongoDB</label><br>
             </div>
             <br />
             <h2>Backend:<h2>
@@ -55,6 +56,8 @@
                 <!-- populate with db values using php-->
                 <input type="checkbox" id="php" name="php" value="backend-php">
                 <label for="php">PHP</label><br>
+                <input type="checkbox" id="express" name="express" value="backend-express">
+                <label for="express">Express.JS</label><br>
             </div>
             <br />
             <h2>Frontend:<h2>
@@ -101,6 +104,16 @@
                 Frontend 
                 Description
             </pre>
+        </div>
+        <div class="card secondary">
+            <h2>Project Name<h2>
+                <pre>Team-members 
+                    Summary
+                    Database
+                    Backend
+                    Frontend 
+                    Description
+                </pre>
         </div>
         <div class="card secondary">
             <h2>Project Name<h2>
