@@ -18,13 +18,19 @@
     <title>CS330/CS340 Gallery</title>
 
     <?php
-        echo "<p style='color: white'>" . print_r($_SESSION, true) . "</p>";
+        // echo "<p style='color: white'>" . print_r($_SESSION, true) . "</p>";
     ?>
 </head>
 <body>
-<?php if( isset($_SESSION['is_login']) && $_SESSION['is_login'] == 0 ) { ?>
-<div class="logout-bar">
+<?php if( isset($_SESSION['is_login']) && ($_SESSION['is_login'] == 0 || $_SESSION['is_login'] == 1) ) { ?>
+<div class="message-bar">
+    <?php if( $_SESSION['is_login'] == 1 ) { ?>
+    <p>Welcome <?= $_SESSION['email'] ?></p>
+    <?php } ?>
+    <?php if( $_SESSION['is_login'] == 0 ) { ?>
     <p>You have successfully logged out.</p>
+    <?php $_SESSION['is_login'] = -1;
+          } ?>
 </div>
 <?php } ?>
 
@@ -33,6 +39,7 @@
     <a href="./index.php" id="home" class="active">Home</a>
     <div class="myLinks">
         <a href="./projects.php">Projects</a>
+        <?php if( $_SESSION['is_login'] == 1 ) { ?>
         <div class="dropdown">
             <button class="dropbtn nav-tool">Admin Tools
               <i class="fa fa-caret-down"></i>
@@ -43,8 +50,11 @@
                 <a href="./logout.php" class="warning">Log Out</a>
             </div>
         </div>
+        <?php } ?>
         <a href="./project_view.php">Project View</a>
+        <?php if( !isset( $_SESSION['is_login'] ) || $_SESSION['is_login'] <= 0 ) { ?>
         <a href="./authenticate.php" class="right">Login</a>
+        <?php } ?>
     </div>
     <i class="fa fa-bars fa-3x" id="mobile-menu"></i>
 </div>
