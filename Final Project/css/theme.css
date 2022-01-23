@@ -37,6 +37,10 @@ should open and close the topnav (.icon) */
     #mobile-menu{
       display: inline-block;
     }
+    .col{
+      display:block;
+    }
+
 }
 @media screen and (min-width: 601px) {
   /* Hide the mobile link */
@@ -45,6 +49,9 @@ should open and close the topnav (.icon) */
   }
   .topnav .myLinks,.nav-tool {
     display: inline-block;
+  }
+  .col{
+    flex: 1;
   }
 }
 
@@ -148,10 +155,6 @@ should open and close the topnav (.icon) */
   display: flex;
   margin:0%;
   padding:0%;
-}
-
-.col{
-  flex: 1;
 }
 
 .card{
