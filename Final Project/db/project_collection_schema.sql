@@ -23,9 +23,10 @@ create table Projects (
     name text not null,
     class_year varchar(11) not null,# maybe we can come up with some numeric convention to store these values
     class_name text not null, # not sure if this is the best data type to use here
+    db varchar(128) not null,
     demo text, # not the best naming convention
     
-    primary key(prj_id)
+    primary key(id)
 );
 
 create table Developers (
@@ -34,9 +35,9 @@ create table Developers (
     lname varchar(128),
     imagepath text,
     class_year smallint,
-    description text,
+    role text,
     
-    primary key(dev_id)
+    primary key(id)
 );
 
 # this table could erode performance of database if tables gets large enough
@@ -56,4 +57,13 @@ create table ProjectFrontEnd (
     
     foreign key(prj_id) references Projects(id) on update cascade,
     primary key(prj_id, frontend)
+);
+
+# this table could erode performance of database if tables gets large enough
+create table ProjectBackEnd (
+	prj_id int,
+    backend varchar(128),
+    
+    foreign key(prj_id) references Projects(id) on update cascade,
+    primary key(prj_id, backend)
 );

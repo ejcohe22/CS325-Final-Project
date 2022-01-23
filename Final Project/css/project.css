@@ -44,3 +44,16 @@ label{
     margin-bottom:0%;
     margin-top:0%;
 }
+
+.card-element {
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
+}
+
+#bottom-card {
+    margin-top: 0.1em;
+}
+
+.indent {
+    padding-left: 1em;
+}
