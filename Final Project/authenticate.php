@@ -24,6 +24,7 @@ if( isset($_POST['email']) && isset($_POST['password']) ) {
     }
     else {
         $_SESSION['email'] = $result['email'];
+        $_SESSION['is_login'] = 1;
         header("Location: http://localhost");
     }
 }
@@ -48,7 +49,7 @@ if( isset($_POST['email']) && isset($_POST['password']) ) {
 <body>
     <!-- Top Navigation Menu -->
 <div class="topnav primary">
-    <a href="./index.html" id="home" class="active">Home</a>
+    <a href="./index.php" id="home" class="active">Home</a>
     <div class="myLinks">
         <a href="./projects.html">Projects</a>
         <div class="dropdown">
