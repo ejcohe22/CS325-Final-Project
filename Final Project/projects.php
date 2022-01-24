@@ -31,17 +31,21 @@
     <a href="./index.php" id="home" class="active">Home</a>
     <div class="myLinks">
         <a href="./projects.php">Projects</a>
+        <?php if( $_SESSION['is_login'] == 1 ) { ?>
         <div class="dropdown">
             <button class="dropbtn nav-tool">Admin Tools
               <i class="fa fa-caret-down"></i>
             </button>
             <div id="admin" class="dropdown-content tools">
                 <a href="./add_project.php">New Project</a>
-                <a href="#">User Administration</a>
-                <a href="#" class="warning">Log Out</a>
+                <a href="./administration.php">User Administration</a>
+                <a href="./logout.php" class="warning">Log Out</a>
             </div>
         </div>
+        <?php } ?>
+        <?php if( !isset( $_SESSION['is_login'] ) || $_SESSION['is_login'] <= 0 ) { ?>
         <a href="./authenticate.php" class="right">Login</a>
+        <?php } ?>
     </div>
     <i class="fa fa-bars fa-3x" id="mobile-menu"></i>
 </div>
@@ -93,8 +97,9 @@
         $devs = $db->query("SELECT d.fname, d.lname, d.role FROM ProjectDeveloper pd INNER JOIN Developers d ON d.id = pd.dev_id WHERE prj_id = " . $id);
 ?>
         <!-- for every project -->
+        <a class="proj-link" href=<?= "project_view.php?id=" . $id ?>>
         <div class="card secondary">
-            <h2><a href=<?= "project_view.php?id=" . $id ?>><?= $project['name'] ?></a></h2>
+            <h2><?= $project['name'] ?></h2>
 <?php       foreach($devs as $row) { ?>
             <p class="card-element"><?= $row['fname'] . " " . $row['lname'] ?></p>
             <p class="card-element indent"><?= $row['role'] ?></p>
@@ -104,7 +109,7 @@
             <p class="card-element"><?= $row['backend'] ?></p>
 <?php       } ?>
             <p id="bottom-card"><?php $row = $frontend->fetch(); $is_first = true; while( $row ) {if(!$is_first) { ?><?= ", " ?><?php } else { $is_first = false; } ?><?= $row['frontend']; ?><?php $row = $frontend->fetch(); } ?></p>
-        </div>
+        </div></a>
 <?php
         $project = $projects->fetch();
     }

@@ -71,29 +71,38 @@
     <a href="./index.php" id="home" class="active">Home</a>
     <div class="myLinks">
         <a href="./projects.php">Projects</a>
+        <?php if( $_SESSION['is_login'] == 1 ) { ?>
         <div class="dropdown">
             <button class="dropbtn nav-tool">Admin Tools
               <i class="fa fa-caret-down"></i>
             </button>
             <div id="admin" class="dropdown-content tools">
-                <a href="#">New Project</a>
-                <a href="#">User Administration</a>
-                <a href="#" class="warning">Log Out</a>
+                <a href="./add_project.php">New Project</a>
+                <a href="./administration.php">User Administration</a>
+                <a href="./logout.php" class="warning">Log Out</a>
             </div>
         </div>
-        <a href="./authenticate.html" class="right">Login</a>
+        <?php } ?>
+        <?php if( !isset( $_SESSION['is_login'] ) || $_SESSION['is_login'] <= 0 ) { ?>
+        <a href="./authenticate.php" class="right">Login</a>
+        <?php } ?>
     </div>
     <i class="fa fa-bars fa-3x" id="mobile-menu"></i>
 </div>
 
 <?php if( isset($_GET['id']) ) { ?>
-<div class="project-content">
-    <img src="<?= $imagepath ?>" />
-    <h1><?= $project['name'] ?></h1>
-    <p>Developers:&nbsp;<?= get_data($devs, array("fname", "lname")) ?></p>
-    <p>Database:&nbsp;<?= $project['db'] ?></p>
-    <p>Other software:&nbsp;<?= get_data($frontend, array("frontend")) . ", " . get_data($backend, array("backend")) ?></p>
+<div id="admin-grid">
+    <div class="project-content">
+        <h1><?= $project['name'] ?></h1>
+        <p class="indent">Developers:&nbsp;<?= get_data($devs, array("fname", "lname")) ?></p>
+        <p class="indent">Database:&nbsp;<?= $project['db'] ?></p>
+        <p class="indent">Other software:&nbsp;<?= get_data($frontend, array("frontend")) . ", " . get_data($backend, array("backend")) ?></p>
+    </div>
+    <div>
+        <img src="<?= $imagepath ?>" />
+    </div>
 </div>
+
 <?php }
       else { ?>
 <div class="error-message">

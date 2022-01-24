@@ -1,8 +1,17 @@
+h1{
+    color:white;
+    width:100%;
+    margin:0%;
+    text-align:center;
+    font-size:32pt;
+    
+}
+
 .new-project {
     width: 400px;
     padding: 0.5em 0px;
     margin:auto;
-    margin-top: 1.5em;
+    margin-top: 0%;
     background-color: white;
     text-align: left;
     border-radius: 0.25em;
@@ -27,12 +36,41 @@
     color:red;
 }
 
-input{
+.fa-plus{
+    color:#428D50;
+}
+
+input[type=text]{
     font-size: .8em;
+    width:250px;
+}
+
+input[type=submit]{
+    float:right;
+    font-size: 16px;
+    border: none;
+    color: white;
+    padding: 12px 14px;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+    border-radius: 5px;
 }
 
 #prj-desc {
 }
+
+#developer-list{
+    margin:0%;
+    padding-left:10px;
+    padding-bottom: 14px;
+}
+
+p{
+    margin:0%;
+    padding: 0%;
+}
+
 .add, .delete-field{
     margin:0%;
     padding:10px 12px;

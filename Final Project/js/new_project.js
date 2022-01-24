@@ -9,6 +9,12 @@ $(document).ready(function(){
         $("#front_end_tools").append(structure);
     });
 
+    $("#add_developer").click(function(){
+        var developer = $('#developer_select').find(":selected").text();
+        var structure = '<p class="developer">' + developer + ' <i class="fa fa-times-circle delete-field"> remove</i></p>';
+        $("#developer-list").append(structure);
+    });
+
     $(document).on('click', '.delete-field', function(){
         $(this).parent().remove(); 
     });

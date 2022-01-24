@@ -1,6 +1,6 @@
 # Create Database
-create database ProjectCollections;
-use ProjectCollections;
+create database ProjectCollection;
+use ProjectCollection;
 
 # Creeate Tables
 # TABLES
@@ -11,8 +11,8 @@ use ProjectCollections;
 # ProjectFrontEnd: Table to link a project to a front-end tool used in given project; front-end tool's name is stored in the database as a string
 
 create table Administrators (
-	id int auto_increment, # may be not the best way to create ids automatically https://stackoverflow.com/questions/4350369/id-best-practices-for-databases
-    username varchar(128) not null,
+	admin_id int auto_increment,
+    email varchar(128) not null,
     password varchar(128) not null,
     
     primary key(admin_id)
