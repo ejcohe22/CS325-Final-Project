@@ -27,14 +27,15 @@
             </button>
             <div id="admin" class="dropdown-content tools">
                 <a href="./add_project.php">New Project</a>
-                <a href="">User Administration</a>
-                <a href="#" class="warning">Log Out</a>
+                <a href="./administration.php">User Administration</a>
+                <a href="./logout.php" class="warning">Log Out</a>
             </div>
         </div>
-        <a href="#" class="right">Login</a>
     </div>
     <i class="fa fa-bars fa-3x" id="mobile-menu"></i>
 </div>
+
+<h1>Add New Project</h1>
 
 <div class="new-project">
     <fieldset>
@@ -60,30 +61,21 @@
             <input class="project-course-year" type="text" placeholder="Enter the course year this project was developed" />
             <br />
             <!-- some javascript is going to be necessary to be able to add more developers -->
-            <label for="project-username">Choose a developer:</label>
-            <select class="add-developer">
+            <label for="project-username">Developers:</label>
+            <select id="developer_select">
                 <!-- php query is going to be necessary here to get all developers here from database -->
                 <option disable selected>Select a developer</option>
-            </select>
+            </select> <i id="add_developer" class="fa fa-plus add"> Add developer</i><br />
             <div id="developer-list">
-                
 
             </div>
-                <i id="add_developer" class="fa fa-plus add"> Add developer to project</i><br />
-            
-
-
-
-
-
-            <p>Some javascript magic is needed to add new more developers by pressing some plus button</p>
             <label id="prj-desc" for="project-description">Description:</label>
             <textarea placeholder="Enter your project description"></textarea>
             <br />
             <label id="prj-desc" for="project-link">Links:</label>
             <input class="project-links" type="file" />
             <br />
-            <input id="project-submit" type="submit" value="Submit" />
+            <input id="project-submit" type="submit" class="primary" value="Submit" />
         </form>
     </fieldset>
 </div>

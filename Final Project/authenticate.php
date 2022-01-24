@@ -26,7 +26,7 @@ if( isset($_POST['email']) && isset($_POST['password']) ) {
     else {
         $_SESSION['email'] = $result['email'];
         $_SESSION['is_login'] = 1;
-        header("Location: http://localhost:8080");
+        header("Location: http://localhost");
     }
 }
 ?>
@@ -91,9 +91,9 @@ if( isset($_POST['email']) && isset($_POST['password']) ) {
               <i class="fa fa-caret-down"></i>
             </button>
             <div id="admin" class="dropdown-content tools">
-                <a href="#">New Project</a>
-                <a href="#">User Administration</a>
-                <a href="#" class="warning">Log Out</a>
+                <a href="./add_project.php">New Project</a>
+                <a href="./administration.php">User Administration</a>
+                <a href="./logout.php" class="warning">Log Out</a>
             </div>
         </div>
     </div>

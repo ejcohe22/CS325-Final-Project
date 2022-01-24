@@ -31,7 +31,6 @@
                 <a href="./logout.php" class="warning">Log Out</a>
             </div>
         </div>
-        <a href="./authenticate.html" class="right">Login</a>
     </div>
     <i class="fa fa-bars fa-3x" id="mobile-menu"></i>
 </div>
