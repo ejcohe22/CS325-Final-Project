@@ -88,41 +88,7 @@
 <div id="projects">
     <!-- for every 3 projects-->
     <div id="grid">
-<?php
-    $project = $projects->fetch();
-    while( $project ) {
-        $id = $project['id'];
-        $frontend = $db->query("SELECT frontend FROM ProjectFrontEnd WHERE prj_id = " . $id);
-        $backend = $db->query("SELECT backend FROM ProjectBackEnd WHERE prj_id = " . $id);
-        $devs = $db->query("SELECT d.fname, d.lname, d.role FROM ProjectDeveloper pd INNER JOIN Developers d ON d.id = pd.dev_id WHERE prj_id = " . $id);
-?>
-        <!-- for every project -->
-        <a class="proj-link" href=<?= "project_view.php?id=" . $id ?>>
-        <div class="card secondary">
-            <h2><?= $project['name'] ?></h2>
-<?php       foreach($devs as $row) { ?>
-            <p class="card-element"><?= $row['fname'] . " " . $row['lname'] ?></p>
-            <p class="card-element indent"><?= $row['role'] ?></p>
-<?php       } ?>
-            <p class="card-element"><?= $project['db'] ?></p>
-<?php       foreach($backend as $row) { ?>
-            <p class="card-element"><?= $row['backend'] ?></p>
-<?php       } ?>
-            <p id="bottom-card"><?php $row = $frontend->fetch(); $is_first = true; while( $row ) {if(!$is_first) { ?><?= ", " ?><?php } else { $is_first = false; } ?><?= $row['frontend']; ?><?php $row = $frontend->fetch(); } ?></p>
-        </div></a>
-<?php
-        $project = $projects->fetch();
-    }
-?>
     </div>
 </div>
-
-
-
-
-
-
-
-    
 </body>
 </html>

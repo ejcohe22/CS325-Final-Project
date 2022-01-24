@@ -60,14 +60,12 @@ foreach($backend as $word) {
 }
 
 // make query to get all project ids
-echo $p_query . "\n";
 $row_ids = $db->query($p_query);
 
 // store ids in array
 $ids = array();
 foreach($row_ids as $id) {
     $ids[] = $id['id'];
-    // echo $id['id'] . ", ";
 }
 
 // make end queries
@@ -87,27 +85,30 @@ if( count($ids) == 0 && (count($database) > 0 || count($frontend) > 0 || count($
     $end_query .= " WHERE '0'='1'";
 }
 
-// make final queries
-$p_query = "SELECT id, name, class_year, class_name, db FROM Projects p" . $end_query;
-$f_query = "SELECT p.id, pf.frontend FROM Projects p INNER JOIN ProjectFrontEnd pf ON p.id = pf.prj_id" . $end_query;
-$b_query = "SELECT p.id, pb.backend FROM Projects p INNER JOIN ProjectBackEnd pb ON p.id = pb.prj_id" . $end_query;
+// make final queries on project basis
+foreach($ids as $id) {
+    $p_query = "SELECT id, name, class_year, class_name, db FROM Projects p WHERE p.id=\"" . $id . "\"";
+    $f_query = "SELECT frontend FROM Projects p INNER JOIN ProjectFrontEnd pf ON p.id = pf.prj_id WHERE p.id=\"" . $id . "\"";
+    $b_query = "SELECT backend FROM Projects p INNER JOIN ProjectBackEnd pb ON p.id = pb.prj_id WHERE p.id=\"" . $id . "\"";
+    $d_query = "SELECT d.fname, d.lname, d.role FROM Projects p INNER JOIN ProjectDeveloper pd ON p.id = pd.prj_id INNER JOIN Developers d ON d.id = pd.dev_id WHERE p.id=\"" . $id . "\"";
 
-// echo $p_query . "\n";
-// echo $f_query . "\n";
-// echo $b_query . "\n";
+    $project = $db->query($p_query)->fetch();
+    $f = $db->query($f_query);
+    $b = $db->query($b_query);
+    $d = $db->query($d_query);
 
-$projects = $db->query($p_query);
-$f = $db->query($f_query);
-$b = $db->query($b_query);
-
-// return that data
-foreach($projects as $row) {
-    echo $row['id'] . "," . $row['name'] . "," . $row['class_year'] . "," . $row['class_name'] . "," . $row['db'] . "\n";
-}
-foreach($f as $row) {
-    echo $row['id'] . "," . $row['frontend'] . "\n";
-}
-foreach($b as $row) {
-    echo $row['id'] . "," . $row['backend'] . "\n";
+    echo $project['id'] . "," . $project['name'] . "," . $project['class_year'] . "," . $project['class_name'] . "," . $project['db'] . "\n";
+    foreach($f as $row) {
+        echo $row['frontend'] . ",";
+    }
+    echo "\n";
+    foreach($b as $row) {
+        echo $row['backend'] . ",";
+    }
+    echo "\n";
+    foreach($d as $row) {
+        echo $row['fname'] . "," . $row['lname'] . "," . $row['role'] . ",";
+    }
+    echo "\n";
 }
 ?>
