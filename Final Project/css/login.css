@@ -7,6 +7,12 @@
     padding:2%;
 }
 
+.admin{
+    margin-top:5%;
+    padding:2%;
+    width:100%;
+}
+
 .error-message {
     position: relative;
     top: 2em;

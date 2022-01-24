@@ -12,7 +12,7 @@
     <!-- <link rel="stylesheet" href= type="text/css"/> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/theme.js"></script>
-    <!-- <script src= ></script> -->
+    <script src="js/new_project.js" ></script>
     <title>Add New Project</title>
 </head>
 <body>
@@ -46,9 +46,17 @@
             <input id="project-database" type="text" placeholder="Enter the database used" />
             <br />
             <!-- some javascript is going to be necessary to be able to add more frontend tools -->
-            <label for="project-frontend">Front-End:</label>
-            <input class="project-frontend" type="text" placeholder="Enter a front-end tool used" />
-            <br />
+            <div id="front_end_tools">
+                <label for="project-frontend">Front-End:</label>
+                <input class="project-frontend" type="text" placeholder="Enter a front-end tool used" /> <br />
+            </div>
+            <i id="add_frontend" class="fa fa-plus add"> Add more Front-End Tools</i>
+
+
+
+
+
+
             <p>Some javascript magic is needed to add new more developers by pressing some plus button</p>
             <!-- some javascript is going to be necessary to be able to add more frontend tools -->
             <label for="project-backend">Back-End:</label>
