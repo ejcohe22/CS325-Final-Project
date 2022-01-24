@@ -97,8 +97,9 @@
         $devs = $db->query("SELECT d.fname, d.lname, d.role FROM ProjectDeveloper pd INNER JOIN Developers d ON d.id = pd.dev_id WHERE prj_id = " . $id);
 ?>
         <!-- for every project -->
+        <a class="proj-link" href=<?= "project_view.php?id=" . $id ?>>
         <div class="card secondary">
-            <h2><a href=<?= "project_view.php?id=" . $id ?>><?= $project['name'] ?></a></h2>
+            <h2><?= $project['name'] ?></h2>
 <?php       foreach($devs as $row) { ?>
             <p class="card-element"><?= $row['fname'] . " " . $row['lname'] ?></p>
             <p class="card-element indent"><?= $row['role'] ?></p>
@@ -108,7 +109,7 @@
             <p class="card-element"><?= $row['backend'] ?></p>
 <?php       } ?>
             <p id="bottom-card"><?php $row = $frontend->fetch(); $is_first = true; while( $row ) {if(!$is_first) { ?><?= ", " ?><?php } else { $is_first = false; } ?><?= $row['frontend']; ?><?php $row = $frontend->fetch(); } ?></p>
-        </div>
+        </div></a>
 <?php
         $project = $projects->fetch();
     }

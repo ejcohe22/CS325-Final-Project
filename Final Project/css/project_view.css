@@ -1,8 +1,27 @@
 .project-content {
-    width: 60%;
-    margin: auto;
-    margin-top: 15em;
+    float:right;
+    margin-top: 1em;
+    margin-right: 5em;
+    margin-left:auto;
     border-radius: 0.25em;
+}
+.indent {
+    padding-left: 5em;
+}
+
+h1{
+    text-decoration: solid underline white 4px;
+}
+h1:before {
+    content: "\00a0";
+}
+h1:after {
+    content: "\00a0\00a0";
+}
+
+.container{
+
+    padding:10px;
 }
 
 .error-message {
@@ -15,4 +34,12 @@
 
 .project-content p, h1, .error-message p {
     color: white;
+}
+
+img{
+    margin-top:3em;
+    height:auto;
+    width:80%;
+    border: solid 2px #FFFFFF;
+    text-align:center;
 }

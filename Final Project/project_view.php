@@ -91,13 +91,18 @@
 </div>
 
 <?php if( isset($_GET['id']) ) { ?>
-<div class="project-content">
-    <img src="<?= $imagepath ?>" />
-    <h1><?= $project['name'] ?></h1>
-    <p>Developers:&nbsp;<?= get_data($devs, array("fname", "lname")) ?></p>
-    <p>Database:&nbsp;<?= $project['db'] ?></p>
-    <p>Other software:&nbsp;<?= get_data($frontend, array("frontend")) . ", " . get_data($backend, array("backend")) ?></p>
+<div id="admin-grid">
+    <div class="project-content">
+        <h1><?= $project['name'] ?></h1>
+        <p class="indent">Developers:&nbsp;<?= get_data($devs, array("fname", "lname")) ?></p>
+        <p class="indent">Database:&nbsp;<?= $project['db'] ?></p>
+        <p class="indent">Other software:&nbsp;<?= get_data($frontend, array("frontend")) . ", " . get_data($backend, array("backend")) ?></p>
+    </div>
+    <div>
+        <img src="<?= $imagepath ?>" />
+    </div>
 </div>
+
 <?php }
       else { ?>
 <div class="error-message">

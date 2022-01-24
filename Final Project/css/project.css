@@ -57,3 +57,12 @@ label{
 .indent {
     padding-left: 1em;
 }
+
+.proj-link{
+    text-decoration: none;
+}
+
+.card:hover{
+    background-color:#FFFFFF;
+    border: solid 2px #AA00BB;
+}
