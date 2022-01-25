@@ -41,24 +41,30 @@
     <fieldset>
         <form method="post">
             <label for="project-name">Name:</label>
-            <input id="project-name" type="text" placeholder="Enter your project name" />
+            <input id="project-name" type="text" name="name" placeholder="Enter your project name" />
             <br />
             <label for="project-database">Database:</label>
-            <input id="project-database" type="text" placeholder="Enter the database used" />
+            <input id="project-database" name="db" type="text" placeholder="Enter the database used" />
             <br />
             <div id="front_end_tools">
                 <label for="project-frontend">Front-End:</label>
-                <input class="project-frontend" type="text" placeholder="Enter a front-end tool used" /><br />
+                <input class="project-frontend" name="frontend" type="text" placeholder="Enter a front-end tool used" /><br />
             </div>
             <i id="add_frontend" class="fa fa-plus add"> Add more Front-End Tools</i>
             <div id="back_end_tools">
                 <label for="project-backend">Back-End:</label>
-                <input class="project-backend" type="text" placeholder="Enter a back-end tool used" /><br />
+                <input class="project-backend" name="backend" type="text" placeholder="Enter a back-end tool used" /><br />
             </div>
             <i id="add_backend" class="fa fa-plus add"> Add more Back-End Tools</i><br />
 
             <label for="project-course-year">Course Year:</label>
-            <input class="project-course-year" type="text" placeholder="Enter the course year this project was developed" />
+            <input class="project-course-year" name="year" type="text" placeholder="Enter the course year this project was developed" />
+            <br />
+            <label for="project-class">Class:</label>
+            <select class="project-class" name="class">
+                <option value="CS330">CS330</option>
+                <option value="CS430">CS430</option>
+            </select>
             <br />
             <!-- some javascript is going to be necessary to be able to add more developers -->
             <label for="project-username">Developers:</label>
@@ -70,10 +76,10 @@
 
             </div>
             <label id="prj-desc" for="project-description">Description:</label>
-            <textarea placeholder="Enter your project description"></textarea>
+            <textarea name="description" placeholder="Enter your project description"></textarea>
             <br />
-            <label id="prj-desc" for="project-link">Links:</label>
-            <input class="project-links" type="file" />
+            <label id="links" for="project-link">Links:</label>
+            <input name="link" class="project-links" type="file" />
             <br />
             <input id="project-submit" type="submit" class="primary" value="Submit" />
         </form>

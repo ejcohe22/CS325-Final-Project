@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +15,7 @@
     <script src="js/theme.js"></script>
     <script src="js/login.js"></script>
     <!-- <script src= ></script> -->
-    <title>      Change SIR         </title>
+    <title>User</title>
 </head>
 <body>
     <!-- Top Navigation Menu -->

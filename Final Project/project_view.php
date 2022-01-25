@@ -18,10 +18,11 @@
     <!-- <link rel="stylesheet" href= type="text/css"/> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/theme.js"></script>
-    <!-- <script src= ></script> -->
-
-    <title>Project</title>
-
+    <script>
+        var project_id = <?php echo json_encode($_GET['id']) ?>;
+    </script>
+    <script src="js/project_view.js"></script>
+    <title>Project view</title>
     <?php
         if( isset($_GET['id']) ) {
             $db = new PDO("mysql:dbname=ProjectCollection;host:localhost", "sam", "blueMooN#101");
@@ -93,15 +94,25 @@
 <?php if( isset($_GET['id']) ) { ?>
 <div id="admin-grid">
     <div class="project-content">
-        <h1><?= $project['name'] ?></h1>
-        <p class="indent">Developers:&nbsp;<?= get_data($devs, array("fname", "lname")) ?></p>
-        <p class="indent">Database:&nbsp;<?= $project['db'] ?></p>
-        <p class="indent">Other software:&nbsp;<?= get_data($frontend, array("frontend")) . ", " . get_data($backend, array("backend")) ?></p>
+        <h1 class="editable"><?= $project['name'] ?></h1>
+        <p class="indent editable">Developers:&nbsp;<?= get_data($devs, array("fname", "lname")) ?></p>
+        <p class="indent editable">Database:&nbsp;<?= $project['db'] ?></p>
+        <p class="indent editable">FrontEnd:&nbsp;<?= get_data($frontend, array("frontend")) ?></p>
+        <p class="indent editable">BackEnd:&nbsp;<?= get_data($backend, array("backend")) ?></p>
     </div>
     <div>
-        <img src="<?= $imagepath ?>" />
+        <img class="editableImg" src="<?= $imagepath ?>" />
     </div>
 </div>
+
+<div id="admin-buttons">
+    <input id="submit" type="submit" class="primary" value="Cancel">
+    <button id="delete" class="warning form"> DELETE PROJECT <i class="fa fa-trash"></i></button>
+</div>
+
+<?php if( $_SESSION['is_login'] == 1 ) { ?>
+<button id="edit-btn" class="primary form" > EDIT <i class="fa fa-edit"></i></button>
+<?php } ?>
 
 <?php }
       else { ?>
