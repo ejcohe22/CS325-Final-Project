@@ -18,6 +18,7 @@ $(document).ready(function(){
 
     //dynamically get filter value
     $(':checkbox').click(function(){
+        $('#grid').empty();
         let keyval = this.value.split("-");
         console.log(keyval);
         if(this.checked) {
@@ -43,8 +44,6 @@ $(document).ready(function(){
         // make query to database
         $.post("make_query.php", {"db": database, "frontend": frontend, "backend": backend}, create_card);
     });
-
-
 });
 
 function create_card(data, status) {
@@ -66,9 +65,6 @@ function create_card(data, status) {
 
         }
         
-        // remove old cards
-        $(".card").remove();
-
         // construct card
         for(let index in projects) {
             let link = "<a class='proj-link' href='project_view.php?id=" + projects[index][0] + "' />";
