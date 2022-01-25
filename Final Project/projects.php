@@ -23,6 +23,15 @@
 
     // get all projects
     $projects = $db->query("SELECT id, name, class_year, class_name, db FROM Projects");
+
+    // get all database types
+    $database = $db->query("SELECT DISTINCT db FROM Projects");
+
+    // get all frontend types
+    $frontend = $db->query("SELECT DISTINCT frontend FROM ProjectFrontEnd");
+
+    // get all backend types
+    $backend = $db->query("SELECT DISTINCT backend FROM ProjectBackEnd");
     ?>
 </head>
 <body>
@@ -59,26 +68,28 @@
             <h2>Database:<h2>
             <div id ="db" class="multi-dropdown">
                 <!-- populate with db values using php-->
-                <input type="checkbox" id="mysql" name="mysql" value="db-mysql">
-                <label for="mysql"> MySQL</label><br>
-                <input type="checkbox" id="mongo" name="mongo" value="db-mongo">
-                <label for="mongo"> MongoDB</label><br>
+                <?php foreach($database as $row) { ?>
+                <input type="checkbox" id=<?= "'" . $row['db'] . "'" ?> name=<?= "'" . $row['db'] . "'" ?> value=<?= "'db-" . $row['db'] . "'" ?>>
+                <label for=<?= "'" . $row['db'] . "'" ?>><?= $row['db'] ?></label><br>
+                <?php } ?>
             </div>
             <br />
             <h2>Backend:<h2>
             <div id ="backend" class="multi-dropdown">
                 <!-- populate with db values using php-->
-                <input type="checkbox" id="php" name="php" value="backend-php">
-                <label for="php">PHP</label><br>
-                <input type="checkbox" id="express" name="express" value="backend-express">
-                <label for="express">Express.JS</label><br>
+                <?php foreach($backend as $row) { ?>
+                <input type="checkbox" id=<?= "'" . $row['backend'] . "'" ?> name=<?= "'" . $row['backend'] . "'" ?> value=<?= "'backend-" . $row['backend'] . "'" ?>>
+                <label for=<?= "'" . $row['backend'] . "'" ?>><?= $row['backend'] ?></label><br>
+                <?php } ?>
             </div>
             <br />
             <h2>Frontend:<h2>
             <div id ="frontend" class="multi-dropdown">
                 <!-- populate with db values using php-->
-                <input type="checkbox" id="html" name="html" value="frontend-html">
-                <label for="html">HTML5</label><br>
+                <?php foreach($frontend as $row) { ?>
+                <input type="checkbox" id=<?= "'" . $row['frontend'] . "'" ?> name=<?= "'" . $row['frontend'] . "'" ?> value=<?= "'frontend-" . $row['frontend'] . "'" ?>>
+                <label for=<?= "'" . $row['frontend'] . "'" ?>><?= $row['frontend'] ?></label><br>
+                <?php } ?>
             </div>
             <br />
         </fieldset>
