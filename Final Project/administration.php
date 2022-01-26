@@ -16,7 +16,7 @@
     <script src="js/login.js"></script>
     <script src="js/admin.js"></script>
     <!-- <script src= ></script> -->
-    <title>User</title>
+    <title>Admin page</title>
 </head>
 <body>
     <!-- Top Navigation Menu -->
@@ -29,7 +29,7 @@
               <i class="fa fa-caret-down"></i>
             </button>
             <div id="admin" class="dropdown-content tools">
-                <a href="./add_project.html">New Project</a>
+                <a href="./add_project.php">New Project</a>
                 <a href="./administration.php">User Administration</a>
                 <a href="./logout.php" class="warning">Log Out</a>
             </div>
