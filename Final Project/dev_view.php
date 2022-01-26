@@ -17,7 +17,7 @@
         session_start();
         // get data from database when this is fixed
         $name = "Sam Munoz";
-        $imagepath = "path/to/file";
+        $imagepath = "/assets/defaultDev.png";
         $grad_year = "2023";
         $project_name = "Mobile Inventory";
         $role = "Front-End Developer";

@@ -6,6 +6,10 @@
     border-radius: 0.25em;
 }
 
+#all-btns{
+    margin-right:50px;
+}
+
 button.form{
     font-size: 16px;
     border: none;
@@ -14,7 +18,7 @@ button.form{
     border: solid 2px black;
     color: white;
     padding: 14px 16px;
-    margin:2em;
+    margin:1em;
     border-radius: 0.25em;
     float:right;
 }
@@ -25,10 +29,10 @@ button.form{
 
 .indent {
     padding-left: 5em;
-    font-family: ;
 }
 
 h1{
+    margin-left: 1em;
     text-decoration: solid underline white 4px;
 }
 h1:before {
@@ -64,6 +68,7 @@ img{
     margin-top:3em;
     height:auto;
     width:80%;
-    border: solid 2px #FFFFFF;
+    border: solid 1px #000000;
+    border-radius:10px;
     text-align:center;
 }

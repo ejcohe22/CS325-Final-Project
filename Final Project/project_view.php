@@ -110,6 +110,7 @@
     </div>
 </div>
 
+<div id="all-btns">
 <div id="admin-buttons">
     <button id="cancel" class="primary form" value="Cancel"> Cancel</button>
     <button id="submbit" class="primary form"> UPDATE PROJECT <i class="fa fa-check-square success"></i></button>
@@ -119,7 +120,7 @@
 <?php if( $_SESSION['is_login'] == 1 ) { ?>
 <button id="edit-btn" class="primary form" > EDIT <i class="fa fa-edit"></i></button>
 <?php } ?>
-
+</div>
 <?php }
       else { ?>
 <div class="error-message">

@@ -184,6 +184,8 @@ img{
   margin-top:5%;
   margin-left: 5%;
   outline: solid 2px black;
+  border-radius: 10px;
+  background-image: linear-gradient(#E3D7E2,#E3D7D1 );
 }
 
 .card>h2{

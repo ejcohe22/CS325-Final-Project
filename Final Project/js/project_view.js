@@ -4,7 +4,7 @@ let frontend_list = [];
 let backend_list = [];
 $(document).ready(function(){
     $("#edit-btn").click(function(){
-        $("#admin-buttons").css("display", "block");
+        $("#admin-buttons").css("display", "inline-block");
         $("#edit-btn").css("display", "none");
 
         $.post("get_developers.php", {}, display_edit);
@@ -12,9 +12,7 @@ $(document).ready(function(){
     $("#cancel").click(function(){
         $("#admin-buttons").css("display", "none");
         $("#edit-btn").css("display", "block");
-
         $(".line").remove();
-
         let devs = "<p class='indent'>Developers: ";
         for(let i in dev_list) {
             devs += "<span class='editable devs'>" + dev_list[i] + "</span>";
