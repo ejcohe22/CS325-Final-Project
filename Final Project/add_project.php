@@ -88,8 +88,11 @@
             <label id="prj-desc" for="project-description">Description:</label>
             <textarea name="description" placeholder="Enter your project description"></textarea>
             <br />
-            <label id="links" for="project-link">Links:</label>
+            <label id="links" for="project-link">Presentation Link:</label>
             <input name="link" class="project-links" type="file" />
+            <br />
+            <label id="file" for="project-link">Image:</label>
+            <input type="file" name="image" id="image-select" accept=".jpg, .jpeg, .png">
             <br />
             <input id="project-submit" type="submit" class="primary" value="Submit" />
         </form>

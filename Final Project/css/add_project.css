@@ -8,7 +8,7 @@ h1{
 }
 
 .new-project {
-    width: 400px;
+    width: 440px;
     padding: 0.5em 0px;
     margin:auto;
     margin-top: 0%;
@@ -45,6 +45,14 @@ input[type=text]{
     width:250px;
 }
 
+input[type=text].developer-role{
+    width:120px !important;
+}
+
+.indent{
+    margin-left: 4em;
+}
+
 input[type=submit]{
     float:right;
     font-size: 16px;
@@ -62,7 +70,7 @@ input[type=submit]{
 
 #developer-list{
     margin:0%;
-    padding-left:10px;
+    padding-left:20px;
     padding-bottom: 14px;
 }
 
@@ -73,8 +81,8 @@ p{
 
 .add, .delete-field{
     margin:0%;
-    padding:10px 12px;
-    border-radius: 25px;
+    padding:7px 8px;
+    border-radius: 10px;
 }
 
 .add:hover{
@@ -84,3 +92,4 @@ p{
 .delete-field:hover{
     background-color:#DFDFDF;
 }
+

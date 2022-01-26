@@ -63,7 +63,7 @@
         // $frontend = "HTML";
         // $backend = "PHP";
         // $database = "MySQL";
-        $imagepath = "path/to/file";
+        $imagepath = "/assets/defaultPrjImg.jpg";
     ?>
 </head>
 <body>
