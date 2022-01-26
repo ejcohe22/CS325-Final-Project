@@ -5,7 +5,7 @@ let backend_list = [];
 let is_editing = false;
 $(document).ready(function(){
     $("#edit-btn").click(function(){
-        $("#admin-buttons").css("display", "block");
+        $("#admin-buttons").css("display", "inline-block");
         $("#edit-btn").css("display", "none");
 
         is_editing = true;
@@ -16,10 +16,6 @@ $(document).ready(function(){
     $("#cancel").click(function(){
         display_view(dev_list, frontend_list, backend_list, database);
 
-        frontend_list = [];
-        dev_list = []; 
-        backend_list = []; 
-        database = ""; 
         is_editing = false; 
     });
 
@@ -189,4 +185,8 @@ function display_view(dl, fl, bl, dd) {
     $(".project-content").append(f);
     $(".project-content").append(b);
 
+    frontend_list = [];
+    dev_list = []; 
+    backend_list = []; 
+    database = ""; 
 }

@@ -8,7 +8,7 @@ h1{
 }
 
 .new-project {
-    width: 440px;
+    width: min(100%, 440px);
     padding: 0.5em 0px;
     margin:auto;
     margin-top: 0%;

@@ -4,12 +4,13 @@
         $db = new PDO("mysql:dbname=ProjectCollection;host=localhost", "sam", "blueMooN#101");
         // attributes go here
 
-        $p_query = "INSERT INTO Projects(name, class_year, class_name, db, demo) VALUES(";
+        $p_query = "INSERT INTO Projects(name, class_year, class_name, db, demo, imagepath) VALUES(";
         $p_query .= "'" . $_POST['name'] . "', ";
         $p_query .= "'" . $_POST['year'] . "', ";
         $p_query .= "'" . $_POST['class_name'] . "', ";
         $p_query .= "'" . $_POST['database'] . "', ";
-        $p_query .= "'" . $_POST['link'] . "')";
+        $p_query .= "'" . $_POST['link'] . "', "; //presentation
+        $p_query .= "'" . $_POST['image'] . "')";
         $db->exec($p_query);
 
         // fetch project id
@@ -49,4 +50,24 @@
     catch(PDOexception $err) {
         echo $err->getMessage(); // this is a placeholder and will need to be replaced with something more useful
     }
+?>
+
+
+<?php
+$target_dir = "assets/";
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+  $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+  if($check !== false) {
+    echo "File is an image - " . $check["mime"] . ".";
+    $uploadOk = 1;
+  } else {
+    echo "File is not an image.";
+    $uploadOk = 0;
+  }
+}
 ?>
