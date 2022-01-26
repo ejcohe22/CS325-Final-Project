@@ -39,15 +39,15 @@
 </div>
 <div id="admin-grid">
     <div class="admin-card secondary">
-        <form class="admin" action="" method="post">
+        <form class="admin" id="admin-create">
             <fieldset>
-            <legend> Database User Creation</legend>
+            <legend> Database Admin User Creation</legend>
                 <label for="email">Email: </label>
                 <input id="email" type="email" name="email" /> <br />
                 <label for="password">Password: </label>
                 <input id="password" type="password" name="password" /><br />
                 <input type="checkbox" id="reveal"> show password </input> <br />
-                <button id="submit" class="primary"> Submit </button>
+                <button id="add-admin" class="primary"> Add Admin </button>
             </fieldset>
         </form>
     </div>
@@ -62,7 +62,7 @@
                 <label for="class">Class year:</label>
                 <select name="class" id="class">
                 </select><br />
-                <button id="add-dev" class="primary"> Add </button>
+                <button id="add-dev" class="primary"> Add Developer </button>
             </fieldset>
         </form>
     </div>

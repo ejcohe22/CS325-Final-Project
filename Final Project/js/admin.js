@@ -27,4 +27,20 @@ $(document).ready(function(){
             }
             });
     });
+
+    $("#add-admin").click(function(){
+        const uremail = $("#email").val();
+        const secret = $("#password").val();
+        $.ajax({
+            type: 'POST',
+            url: "add_admin.php",
+            data: {
+                email: uremail,
+                password: secret
+            },
+            success: function(data){
+                alert("succesfully added new admin ");
+            }
+            });
+    });
 });
