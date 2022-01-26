@@ -28,10 +28,3 @@ $(document).ready(function(){
             });
     });
 });
-
-<select class="project-class" name="class">
-<option value="CS330">CS330</option>
-<option value="CS430">CS430</option>
-</select>
-<br />
-
