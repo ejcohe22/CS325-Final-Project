@@ -65,7 +65,13 @@
             <i id="add_backend" class="fa fa-plus add"> Add more Back-End Tools</i><br />
 
             <label for="project-course-year">Course Year:</label>
-            <input class="project-course-year" type="text" name="course-year" placeholder="Enter the course year this project was developed" />
+            <input class="project-course-year" name="year" type="text" placeholder="Enter the course year this project was developed" />
+            <br />
+            <label for="project-class">Class:</label>
+            <select class="project-class" name="class">
+                <option value="CS330">CS330</option>
+                <option value="CS430">CS430</option>
+            </select>
             <br />
             <!-- some javascript is going to be necessary to be able to add more developers -->
             <label for="project-username">Developers:</label>
@@ -82,8 +88,8 @@
             <label id="prj-desc" for="project-description">Description:</label>
             <textarea name="description" placeholder="Enter your project description"></textarea>
             <br />
-            <label id="prj-desc" for="project-link">Links:</label>
-            <input name="links" class="project-links" type="file" />
+            <label id="links" for="project-link">Links:</label>
+            <input name="link" class="project-links" type="file" />
             <br />
             <input id="project-submit" type="submit" class="primary" value="Submit" />
         </form>

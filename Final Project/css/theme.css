@@ -10,7 +10,8 @@
 }
 
 .warning{
-    color: #E15630 !important;
+  background-color:#E3D7D1;
+  color: #E15630 !important;
 }
 
 .success{

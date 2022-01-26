@@ -5,8 +5,27 @@
     margin-left:auto;
     border-radius: 0.25em;
 }
+
+input[type=submit], button.form{
+    font-size: 16px;
+    border: none;
+    outline: none;
+    box-shadow: inset 0px 0px 0px 1px black;
+    border: solid 2px black;
+    color: white;
+    padding: 14px 16px;
+    margin:2em;
+    border-radius: 0.25em;
+    float:right;
+}
+
+#admin-buttons{
+    display:none;
+}
+
 .indent {
     padding-left: 5em;
+    font-family: ;
 }
 
 h1{
@@ -16,7 +35,7 @@ h1:before {
     content: "\00a0";
 }
 h1:after {
-    content: "\00a0\00a0";
+    content: "\00a0";
 }
 
 .container{

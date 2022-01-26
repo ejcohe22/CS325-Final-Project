@@ -9,13 +9,15 @@ $password = null;
 // check if POST method was sent; if so, check if login credentals are valid
 if( isset($_POST['email']) && isset($_POST['password']) ) {
     $db = new PDO("mysql:dbname=ProjectCollection;host=localhost", "sam", "blueMooN#101");
-    $result = $db->query("SELECT * FROM Administrators WHERE email=\"" . $_POST['email'] . "\" AND password=\"" . $_POST['password'] . "\"")->fetch();
+    $email = substr($db->quote($_POST['email']),1,-1);
+    $password = substr($db->quote($_POST['password']),1,-1);
+    $result = $db->query("SELECT * FROM Administrators WHERE email=\"" . $email . "\" AND password=\"" . $password . "\"")->fetch();
     
     // if query return no results, determine error; otherwise, redirect user to admin home page
     if( !$result ) {
-        $emailq = $db->query("SELECT * FROM Administrators WHERE email=\"" . $_POST['email'] . "\"")->fetch()['email'];
-        $passwordq = $db->query("SELECT * FROM Administrators WHERE email=\"" . $_POST['email'] . "\" AND password=\"" . $_POST['password'] . "\"")->fetch()['password'];
-        var_dump($db->query("SELECT * FROM Administrators WHERE email=\"" . $_POST['email'] . "\" AND password=\"" . $_POST['password'] . "\"")->fetch());
+        $emailq = $db->query("SELECT * FROM Administrators WHERE email=\"" . $email . "\"")->fetch()['email'];
+        $passwordq = $db->query("SELECT * FROM Administrators WHERE email=\"" . $email . "\" AND password=\"" . $password . "\"")->fetch()['password'];
+        var_dump($db->query("SELECT * FROM Administrators WHERE email=\"" . $email . "\" AND password=\"" . $password . "\"")->fetch());
         if($emailq === null) {
             $email = "You entered an invalid email. Please make sure to correctly enter your email.";
         }
