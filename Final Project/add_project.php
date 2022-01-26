@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +16,11 @@
     <script src="js/theme.js"></script>
     <script src="js/new_project.js" ></script>
     <title>Add New Project</title>
+    <?php
+    $db = new PDO("mysql:dbname=ProjectCollection;host:localhost", "sam", "blueMooN#101");
+
+    $dev_list = $db->query("SELECT d.id, d.fname, d.lname FROM Developers d");
+    ?>
 </head>
 <body>
     <!-- Top Navigation Menu -->
@@ -39,41 +46,44 @@
 
 <div class="new-project">
     <fieldset>
-        <form method="post">
+        <form action="create_project.php" method="post">
             <label for="project-name">Name:</label>
-            <input id="project-name" type="text" placeholder="Enter your project name" />
+            <input id="project-name" type="text" name="name" placeholder="Enter your project name" />
             <br />
             <label for="project-database">Database:</label>
-            <input id="project-database" type="text" placeholder="Enter the database used" />
+            <input id="project-database" type="text" name="database" placeholder="Enter the database used" />
             <br />
             <div id="front_end_tools">
                 <label for="project-frontend">Front-End:</label>
-                <input class="project-frontend" type="text" placeholder="Enter a front-end tool used" /><br />
+                <input class="project-frontend" type="text" name="frontend[]" placeholder="Enter a front-end tool used" /><br />
             </div>
             <i id="add_frontend" class="fa fa-plus add"> Add more Front-End Tools</i>
             <div id="back_end_tools">
                 <label for="project-backend">Back-End:</label>
-                <input class="project-backend" type="text" placeholder="Enter a back-end tool used" /><br />
+                <input class="project-backend" type="text" name="backend[]" placeholder="Enter a back-end tool used" /><br />
             </div>
             <i id="add_backend" class="fa fa-plus add"> Add more Back-End Tools</i><br />
 
             <label for="project-course-year">Course Year:</label>
-            <input class="project-course-year" type="text" placeholder="Enter the course year this project was developed" />
+            <input class="project-course-year" type="text" name="course-year" placeholder="Enter the course year this project was developed" />
             <br />
             <!-- some javascript is going to be necessary to be able to add more developers -->
             <label for="project-username">Developers:</label>
             <select id="developer_select">
                 <!-- php query is going to be necessary here to get all developers here from database -->
                 <option disable selected>Select a developer</option>
+                <?php foreach($dev_list as $dev) { ?>
+                <option value="{<?= $dev['id'] ?>}"><?= $dev['fname'] . " " . $dev['lname'] ?></option>
+                <?php } ?>
             </select> <i id="add_developer" class="fa fa-plus add"> Add developer</i><br />
             <div id="developer-list">
 
             </div>
             <label id="prj-desc" for="project-description">Description:</label>
-            <textarea placeholder="Enter your project description"></textarea>
+            <textarea name="description" placeholder="Enter your project description"></textarea>
             <br />
             <label id="prj-desc" for="project-link">Links:</label>
-            <input class="project-links" type="file" />
+            <input name="links" class="project-links" type="file" />
             <br />
             <input id="project-submit" type="submit" class="primary" value="Submit" />
         </form>
