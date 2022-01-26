@@ -99,6 +99,7 @@
 <?php if( isset($_GET['id']) ) { ?>
 <div id="admin-grid">
     <div class="project-content">
+        <input id="project-id" type="hidden" value="<?= $_GET['id'] ?>" />
         <h1 class="editable"><?= $project['name'] ?></h1>
         <p class="indent">Developers:&nbsp;<?= get_data($devs, array("fname", "lname"), "devs") ?></p>
         <p class="indent">Database:&nbsp;<span class="editable database"><?= $project['db'] ?></span></p>
@@ -112,7 +113,7 @@
 
 <div id="admin-buttons">
     <button id="cancel" class="primary form" value="Cancel"> Cancel</button>
-    <button id="submbit" class="primary form"> UPDATE PROJECT <i class="fa fa-check-square success"></i></button>
+    <button id="submit" class="primary form"> UPDATE PROJECT <i class="fa fa-check-square success"></i></button>
     <button id="delete" class="warning form"> DELETE PROJECT <i class="fa fa-trash"></i></button>
 </div>
 

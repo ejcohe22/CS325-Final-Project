@@ -19,7 +19,7 @@
 
     <?php
     /* CONNECT TO DATABASE */
-    $db = new PDO("mysql:dbname=ProjectCollection;host:localhost", "sam", "blueMooN#101");
+    $db = new PDO("mysql:dbname=ProjectCollection;host=localhost", "sam", "blueMooN#101");
 
     // get all projects
     $projects = $db->query("SELECT id, name, class_year, class_name, db FROM Projects");

@@ -2,56 +2,57 @@ let dev_list = [];
 let database = "";
 let frontend_list = [];
 let backend_list = [];
+let is_editing = false;
 $(document).ready(function(){
     $("#edit-btn").click(function(){
         $("#admin-buttons").css("display", "block");
         $("#edit-btn").css("display", "none");
 
+        is_editing = true;
+
         $.post("get_developers.php", {}, display_edit);
     });
+
     $("#cancel").click(function(){
-        $("#admin-buttons").css("display", "none");
-        $("#edit-btn").css("display", "block");
-
-        $(".line").remove();
-
-        let devs = "<p class='indent'>Developers: ";
-        for(let i in dev_list) {
-            devs += "<span class='editable devs'>" + dev_list[i] + "</span>";
-            if(i != dev_list.length - 1) {
-                devs += ", ";
-            }
-        }
-        devs += "</p>";
-
-        let d = "<p class='indent'>Database: <span class='editable database'>" + database + "</span></p>";
-
-        let f = "<p class='indent'>FrontEnd: ";
-        for(let i in frontend_list) {
-            f += "<span class='editable frontend'>" + frontend_list[i] + "</span>";
-            if(i != frontend_list.length - 1) {
-                f += ", ";
-            }
-        }
-        f += "</p>";
-
-        let b = "<p class='indent'>BackEnd: ";
-        for(let i in backend_list) {
-            b += "<span class='editable backend'>" + backend_list[i] + "</span>";
-            if(i != backend_list.length - 1) {
-                b += ", ";
-            }
-        }
-        b += "</p>";
-
-        $(".project-content").append(devs);
-        $(".project-content").append(d);
-        $(".project-content").append(f);
-        $(".project-content").append(b);
+        display_view(dev_list, frontend_list, backend_list, database);
 
         frontend_list = [];
-        dev_list = [];
-        backend_list = [];
+        dev_list = []; 
+        backend_list = []; 
+        database = ""; 
+        is_editing = false; 
+    });
+
+    $("#submit").click(function(){
+        if(is_editing) {
+           let devs = $(".dev-field"); 
+           let f = $(".frontend-field"); 
+           let d = $(".database-field")[0]; 
+           let b = $(".backend-field"); 
+           let id = $("#project-id")[0].value;
+
+           let d_values = [];
+           for(let i = 0; i < devs.length; i++) {
+                d_values.push(devs[i].value);
+           }
+           let f_values = [];
+           for(let i = 0; i < f.length; i++) {
+                f_values.push(f[i].value);
+           }
+           let b_values = [];
+           for(let i = 0; i < b.length; i++) {
+                b_values.push(b[i].value);
+           }
+
+           console.log(id);
+           console.log(d.value);
+           console.log(f_values);
+           console.log(d_values);
+           console.log(b_values);
+           $.post("update_project.php", {"id": id, "db": d.value, "frontend": f_values, "devs": d_values, "backend": b_values}, pre_display_view);
+
+           is_editing = false;
+        }
     });
 
     $('#delete').click(function() {
@@ -64,6 +65,39 @@ $(document).ready(function(){
         window.location.href = "projects.php";
       });
 });
+
+function pre_display_view(data, status) {
+    if(status == "success") {
+        console.log(data);
+        let rows = data.split("\n");
+        rows = rows.slice(0, rows.length-1);
+        for(let index in rows) {
+            rows[index] = rows[index].split(",");
+        }
+        let dd = "";
+        let dl = [];
+        let fl = [];
+        let bl = [];
+        for(let i in rows) {
+            console.log("row " + i + " has length " + rows[i].length);
+            for(let j = 1; j < rows[i].length; j++) {
+                if(rows[i][0] == "dev") {
+                    dl.push(rows[i][j]);
+                } else if(rows[i][0] == "db") {
+                    dd = rows[i][j];
+                } else if(rows[i][0] == "frontend") {
+                    fl.push(rows[i][j]);
+                } else if(rows[i][0] == "backend") {
+                    bl.push(rows[i][j]);
+                }
+            }
+        }
+
+        display_view(dl, fl, bl, dd);
+    } else {
+        console.log("an error has occured");
+    }
+}
 
 function display_edit(data, status) {
     if(status == "success") {
@@ -85,7 +119,7 @@ function display_edit(data, status) {
             let classes = to_remove.className.split(" ");
             for(let index in classes) {
                 if(classes[index] == "devs") {
-                    insert_element = "<div class='line'><span class='indent'>Developer " + dev_count + ":&nbsp</span><select name='devs[]'/>";
+                    insert_element = "<div class='line'><span class='indent'>Developer " + dev_count + ":&nbsp</span><select class='dev-field' name='devs[]'/>";
                     for(let i in rows) {
                         insert_element += "<option value='" + rows[i][0] + "'"; 
                         let name = rows[i][1] + " " + rows[i][2];
@@ -98,13 +132,13 @@ function display_edit(data, status) {
                     dev_list.push(to_remove.innerHTML);
                     dev_count += 1;
                 } else if(classes[index] == "database") {
-                    insert_element = "<div class='line'><span class='indent'>Database:&nbsp</span><input type='text' value='" + to_remove.innerHTML+ "'/></div>";
+                    insert_element = "<div class='line'><span class='indent'>Database:&nbsp</span><input type='text' class='database-field' value='" + to_remove.innerHTML+ "'/></div>";
                     database = to_remove.innerHTML;
                 } else if(classes[index] == "frontend") {
-                    insert_element = "<div class='line'><span class='indent'>FrontEnd:&nbsp</span><input type='text' value='" + to_remove.innerHTML+ "'/></div>";
+                    insert_element = "<div class='line'><span class='indent'>FrontEnd:&nbsp</span><input class='frontend-field' type='text' value='" + to_remove.innerHTML+ "'/></div>";
                     frontend_list.push(to_remove.innerHTML);
                 } else if(classes[index] == "backend") {
-                    insert_element = "<div class='line'><span class='indent'>Backend:&nbsp</span><input type='text' value='" + to_remove.innerHTML+ "'/></div>";
+                    insert_element = "<div class='line'><span class='indent'>Backend:&nbsp</span><input class='backend-field' type='text' value='" + to_remove.innerHTML+ "'/></div>";
                     backend_list.push(to_remove.innerHTML);
                 }
             }
@@ -113,5 +147,46 @@ function display_edit(data, status) {
     } else {
         console.log("an error has occured");
     }
+
+}
+function display_view(dl, fl, bl, dd) {
+    $("#admin-buttons").css("display", "none");
+    $("#edit-btn").css("display", "block");
+
+    $(".line").remove();
+
+    let devs = "<p class='indent'>Developers: ";
+    for(let i in dl) {
+        devs += "<span class='editable devs'>" + dl[i] + "</span>";
+        if(i != dl.length - 1) {
+            devs += ", ";
+        }
+    }
+    devs += "</p>";
+
+    let d = "<p class='indent'>Database: <span class='editable database'>" + dd + "</span></p>";
+
+    let f = "<p class='indent'>FrontEnd: ";
+    for(let i in fl) {
+        f += "<span class='editable frontend'>" + fl[i] + "</span>";
+        if(i != fl.length - 1) {
+            f += ", ";
+        }
+    }
+    f += "</p>";
+
+    let b = "<p class='indent'>BackEnd: ";
+    for(let i in bl) {
+        b += "<span class='editable backend'>" + bl[i] + "</span>";
+        if(i != bl.length - 1) {
+            b += ", ";
+        }
+    }
+    b += "</p>";
+
+    $(".project-content").append(devs);
+    $(".project-content").append(d);
+    $(".project-content").append(f);
+    $(".project-content").append(b);
 
 }
