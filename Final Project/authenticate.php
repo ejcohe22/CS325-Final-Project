@@ -28,7 +28,7 @@ if( isset($_POST['email']) && isset($_POST['password']) ) {
     else {
         $_SESSION['email'] = $result['email'];
         $_SESSION['is_login'] = 1;
-        header("Location: http://localhost");
+        header("Location: index.php");
     }
 }
 ?>
@@ -77,7 +77,7 @@ if( isset($_POST['email']) && isset($_POST['password']) ) {
             else {
                 $_SESSION['email'] = $result['email'];
                 $_SESSION['is_login'] = 1;
-                header("location: http://localhost");
+                header("location: index.php");
             }
         }
     ?>

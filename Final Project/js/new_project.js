@@ -14,7 +14,8 @@ $(document).ready(function(){
         var dev_id = $('#developer_select').val();
         var structure = '<p class="developer">' + developer 
         + ' <i class="fa fa-times-circle delete-field"> remove</i>' 
-        + "<input type='hidden' name='devs[]' value='" + dev_id + "' />" + '</p>';
+        + "<input type='hidden' name='devs[]' value='" + dev_id + "' />" 
+        + '<select class="devrole" name="devrole[]"><option value="Front-End Developer">Front-End Developer</option><option value="Back-End Developer">Back-End Developer</option><option value="Full-Stack Developer">Front-End Developer</option></select></p>';
         $("#developer-list").append(structure);
     });
 

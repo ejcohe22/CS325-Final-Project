@@ -27,7 +27,7 @@
 <div class="topnav primary">
     <a href="./index.php" id="home" class="active">Home</a>
     <div class="myLinks">
-        <a href="./projects">Projects</a>
+        <a href="./projects.php">Projects</a>
         <div class="dropdown">
             <button class="dropbtn nav-tool">Admin Tools
               <i class="fa fa-caret-down"></i>

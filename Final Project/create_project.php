@@ -33,6 +33,8 @@
         }
         $db->exec($b_query);
 
+        // $_POST['devrole'] is a new array that can be added on schema 
+        //update it should match the number of devs
         $d_query = "INSERT INTO ProjectDeveloper(prj_id, dev_id) VALUES";
         for($i = 0; $i < count($_POST['devs']); $i++) {
             $d_query .= "(" . $id . ", '" . substr($_POST['devs'][$i], 1, -1) . "')";
