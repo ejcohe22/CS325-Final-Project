@@ -12,8 +12,9 @@ $(document).ready(function(){
     $("#add_developer").click(function(){
         var developer = $('#developer_select').find(":selected").text();
         var dev_id = $('#developer_select').val();
-        var structure = '<p class="developer">' + developer + ' <i class="fa fa-times-circle delete-field"> remove</i></p>';
-        structure += "<input type='hidden' name='devs[]' value='" + dev_id + "' />";
+        var structure = '<p class="developer">' + developer 
+        + ' <i class="fa fa-times-circle delete-field"> remove</i>' 
+        + "<input type='hidden' name='devs[]' value='" + dev_id + "' />" + '</p>';
         $("#developer-list").append(structure);
     });
 
@@ -41,4 +42,4 @@ $(document).ready(function(){
     //     console.log(formdata);
     //     event.preventDefault();
     //   });
-});
+//});
