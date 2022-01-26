@@ -25,6 +25,7 @@ create table Projects (
     class_name text not null, # not sure if this is the best data type to use here
     db varchar(128) not null,
     demo text, # not the best naming convention
+    imagepath text,
     
     primary key(id)
 );
@@ -35,7 +36,6 @@ create table Developers (
     lname varchar(128),
     imagepath text,
     class_year smallint,
-    role text,
     
     primary key(id)
 );
@@ -44,6 +44,7 @@ create table Developers (
 create table ProjectDeveloper (
 	prj_id int,
     dev_id int,
+    role text,
     
     foreign key(prj_id) references Projects(id) on update cascade,
     foreign key(dev_id) references Developers(id) on update cascade,
