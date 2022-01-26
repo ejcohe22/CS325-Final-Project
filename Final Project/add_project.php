@@ -68,7 +68,7 @@
             <input class="project-course-year" name="year" type="text" placeholder="Enter the course year this project was developed" />
             <br />
             <label for="project-class">Class:</label>
-            <select class="project-class" name="class">
+            <select class="project-class" name="class_name">
                 <option value="CS330">CS330</option>
                 <option value="CS430">CS430</option>
             </select>
