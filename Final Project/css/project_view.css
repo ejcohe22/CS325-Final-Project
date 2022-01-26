@@ -6,7 +6,7 @@
     border-radius: 0.25em;
 }
 
-input[type=submit], button.form{
+button.form{
     font-size: 16px;
     border: none;
     outline: none;

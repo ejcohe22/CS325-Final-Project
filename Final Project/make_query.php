@@ -90,7 +90,7 @@ foreach($ids as $id) {
     $p_query = "SELECT id, name, class_year, class_name, db FROM Projects p WHERE p.id=\"" . $id . "\"";
     $f_query = "SELECT frontend FROM Projects p INNER JOIN ProjectFrontEnd pf ON p.id = pf.prj_id WHERE p.id=\"" . $id . "\"";
     $b_query = "SELECT backend FROM Projects p INNER JOIN ProjectBackEnd pb ON p.id = pb.prj_id WHERE p.id=\"" . $id . "\"";
-    $d_query = "SELECT d.fname, d.lname, d.role FROM Projects p INNER JOIN ProjectDeveloper pd ON p.id = pd.prj_id INNER JOIN Developers d ON d.id = pd.dev_id WHERE p.id=\"" . $id . "\"";
+    $d_query = "SELECT d.fname, d.lname, pd.role FROM Projects p INNER JOIN ProjectDeveloper pd ON p.id = pd.prj_id INNER JOIN Developers d ON d.id = pd.dev_id WHERE p.id=\"" . $id . "\"";
 
     $project = $db->query($p_query)->fetch();
     $f = $db->query($f_query);

@@ -106,7 +106,8 @@
 </div>
 
 <div id="admin-buttons">
-    <input id="submit" type="submit" class="primary" value="Cancel">
+    <button id="cancel" class="primary form" value="Cancel"> Cancel</button>
+    <button id="submbit" class="primary form"> UPDATE PROJECT <i class="fa fa-check-square success"></i></button>
     <button id="delete" class="warning form"> DELETE PROJECT <i class="fa fa-trash"></i></button>
 </div>
 

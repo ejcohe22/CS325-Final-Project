@@ -35,9 +35,9 @@
 
         // $_POST['devrole'] is a new array that can be added on schema 
         //update it should match the number of devs
-        $d_query = "INSERT INTO ProjectDeveloper(prj_id, dev_id) VALUES";
+        $d_query = "INSERT INTO ProjectDeveloper(prj_id, dev_id, role) VALUES";
         for($i = 0; $i < count($_POST['devs']); $i++) {
-            $d_query .= "(" . $id . ", '" . substr($_POST['devs'][$i], 1, -1) . "')";
+            $d_query .= "(" . $id . ", '" . substr($_POST['devs'][$i], 1, -1) . "', '" . $_POST['devrole'][$i] ."')";
             if($i != count($_POST['devs'])-1) {
                 $d_query .= ", ";
             }

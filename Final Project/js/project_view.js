@@ -3,7 +3,7 @@ $(document).ready(function(){
         $("#admin-buttons").css("display", "block");
         $("#edit-btn").css("display", "none");
     });
-    $("#submit").click(function(){
+    $("#cancel").click(function(){
         $("#admin-buttons").css("display", "none");
         $("#edit-btn").css("display", "block");
 

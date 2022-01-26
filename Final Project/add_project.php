@@ -85,9 +85,6 @@
             <div id="developer-list">
 
             </div>
-            <label id="prj-desc" for="project-description">Description:</label>
-            <textarea name="description" placeholder="Enter your project description"></textarea>
-            <br />
             <label id="links" for="project-link">Presentation Link:</label>
             <input name="link" class="project-links" type="file" />
             <br />
