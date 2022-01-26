@@ -1,7 +1,7 @@
 <?php 
     session_start(); 
-    echo "<span style='color: white'>" . print_r($_SESSION, true) . "</span>";
-    echo "<span style='color: white'>" . print_r($_GET, true) . "</span>";
+    // echo "<span style='color: white'>" . print_r($_SESSION, true) . "</span>";
+    // echo "<span style='color: white'>" . print_r($_GET, true) . "</span>";
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +36,7 @@
         }
 
         // function returns a string, formated as a list of words from data stored in rows from database
-        function get_data($rows, $field_names) {
+        function get_data($rows, $field_names, $class_type) {
             $rtn_str = "";
             $is_first = true;
             $row = $rows->fetch();
@@ -45,9 +45,14 @@
                     $rtn_str .= ", ";
                 }
                 for($index = 0; $index < count($field_names); $index++) {
+                    if($index == 0) {
+                        $rtn_str .= "<span class='editable " . $class_type . "'>";
+                    }
                     $rtn_str .= $row[$field_names[$index]];
                     if($index != count($field_names) - 1) {
                         $rtn_str .= " ";
+                    } else {
+                        $rtn_str .= "</span>";
                     }
                 }
                 $is_first = false;
@@ -95,10 +100,10 @@
 <div id="admin-grid">
     <div class="project-content">
         <h1 class="editable"><?= $project['name'] ?></h1>
-        <p class="indent editable">Developers:&nbsp;<?= get_data($devs, array("fname", "lname")) ?></p>
-        <p class="indent editable">Database:&nbsp;<?= $project['db'] ?></p>
-        <p class="indent editable">FrontEnd:&nbsp;<?= get_data($frontend, array("frontend")) ?></p>
-        <p class="indent editable">BackEnd:&nbsp;<?= get_data($backend, array("backend")) ?></p>
+        <p class="indent">Developers:&nbsp;<?= get_data($devs, array("fname", "lname"), "devs") ?></p>
+        <p class="indent">Database:&nbsp;<span class="editable database"><?= $project['db'] ?></span></p>
+        <p class="indent">FrontEnd:&nbsp;<?= get_data($frontend, array("frontend"), "frontend") ?></p>
+        <p class="indent">BackEnd:&nbsp;<?= get_data($backend, array("backend"), "backend") ?></p>
     </div>
     <div>
         <img class="editableImg" src="<?= $imagepath ?>" />
