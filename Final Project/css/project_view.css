@@ -51,8 +51,13 @@ h1:after {
     text-align: center;
 }
 
-.project-content p, h1, .error-message p {
+.project-content p, h1, span, .error-message p {
     color: white;
+}
+
+.line {
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 img{
