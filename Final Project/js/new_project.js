@@ -18,24 +18,4 @@ $(document).ready(function(){
     $(document).on('click', '.delete-field', function(){
         $(this).parent().remove(); 
     });
-
-    $("form").submit(function( event ) {
-        var developers = [];
-        $("#developer-list").children('p').each(function(){
-            developers.push( $(this).text().slice(0, -8) );
-        })
-        var serialized = $(this).serializeArray();
-        const formdata= {
-            "name" : serialized[0]['value'],
-            "db" : serialized[1]['value'],
-            "frontend" : serialized[2]['value'],
-            "backend" : serialized[3]['value'],
-            "year" : serialized[4]['value'],
-            "class" : serialized[5]['value'],
-            "description" : serialized[6]['value'],
-            "developers": developers
-        }
-        console.log(formdata);
-        event.preventDefault();
-      });
 });
