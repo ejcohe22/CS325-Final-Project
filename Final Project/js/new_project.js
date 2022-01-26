@@ -11,7 +11,7 @@ $(document).ready(function(){
 
     $("#add_developer").click(function(){
         var developer = $('#developer_select').find(":selected").text();
-        var structure = '<p class="developer">' + developer + ' <i class="fa fa-times-circle delete-field"> remove</i></p>';
+        var structure = '<p class="developer">' + developer + ' <i class="fa fa-times-circle delete-field"> remove</i></p> +';
         $("#developer-list").append(structure);
     });
 
