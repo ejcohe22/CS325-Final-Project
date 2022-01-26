@@ -22,18 +22,6 @@
     ?>
 </head>
 <body>
-<?php if( isset($_SESSION['is_login']) && ($_SESSION['is_login'] == 0 || $_SESSION['is_login'] == 1) ) { ?>
-<div class="message-bar">
-    <?php if( $_SESSION['is_login'] == 1 ) { ?>
-    <p>Welcome <?= $_SESSION['email'] ?></p>
-    <?php } ?>
-    <?php if( $_SESSION['is_login'] == 0 ) { ?>
-    <p>You have successfully logged out.</p>
-    <?php $_SESSION['is_login'] = -1;
-          } ?>
-</div>
-<?php } ?>
-
 <!-- Top Navigation Menu -->
 <div class="topnav primary">
     <a href="./index.php" id="home" class="active">Home</a>
@@ -57,6 +45,23 @@
     </div>
     <i class="fa fa-bars fa-3x" id="mobile-menu"></i>
 </div>
+
+<?php if( isset($_SESSION['is_login']) && ($_SESSION['is_login'] == 0 || $_SESSION['is_login'] == 1) ) { ?>
+<div class="message-bar">
+    <?php if( $_SESSION['is_login'] == 1 ) { ?>
+    <p>Welcome <?= $_SESSION['email'] ?></p>
+    <?php } ?>
+    <?php if( $_SESSION['is_login'] == 0 ) { ?>
+    <p>You have successfully logged out.</p>
+    <?php $_SESSION['is_login'] = -1;
+          } ?>
+</div>
+<?php } ?>
+
+
+
+
+
     <div  id="masthead">
         <img src="./assets/Miller1.jpg" alt="Colby College">
         <h1>Professor Stacy Doore's<br />

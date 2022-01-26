@@ -14,8 +14,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/theme.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/admin.js"></script>
     <!-- <script src= ></script> -->
-    <title>User</title>
+    <title>Admin page</title>
 </head>
 <body>
     <!-- Top Navigation Menu -->
@@ -28,7 +29,7 @@
               <i class="fa fa-caret-down"></i>
             </button>
             <div id="admin" class="dropdown-content tools">
-                <a href="./add_project.html">New Project</a>
+                <a href="./add_project.php">New Project</a>
                 <a href="./administration.php">User Administration</a>
                 <a href="./logout.php" class="warning">Log Out</a>
             </div>
@@ -38,28 +39,30 @@
 </div>
 <div id="admin-grid">
     <div class="admin-card secondary">
-        <form class="admin" action="" method="post">
+        <form class="admin" id="admin-create">
             <fieldset>
-            <legend> Database User Creation</legend>
+            <legend> Database Admin User Creation</legend>
                 <label for="email">Email: </label>
                 <input id="email" type="email" name="email" /> <br />
                 <label for="password">Password: </label>
                 <input id="password" type="password" name="password" /><br />
                 <input type="checkbox" id="reveal"> show password </input> <br />
-                <button id="submit" class="primary"> Submit </button>
+                <button id="add-admin" class="primary"> Add Admin </button>
             </fieldset>
         </form>
     </div>
     <div class="admin-card secondary">
-        <form class="admin" action="" method="post">
+        <form class="admin" id="dev-create">
             <fieldset>
-            <legend> Change my credentials</legend>
-                <label for="email">Email: </label>
-                <input id="email" type="email" name="email" /> <br />
-                <label for="password">Password: </label>
-                <input id="password" type="password" name="password" /><br />
-                <input type="checkbox" id="reveal"> show password </input> <br />
-                <button id="submit" class="primary"> Submit </button>
+            <legend> Add Developers</legend>
+                <label for="fname">First Name: </label>
+                <input id="fname" type="text" name="fname" /> <br />
+                <label for="lname">Last Name: </label>
+                <input id="lname" type="text" name="lname" /> <br />
+                <label for="class">Class year:</label>
+                <select name="class" id="class">
+                </select><br />
+                <button id="add-dev" class="primary"> Add Developer </button>
             </fieldset>
         </form>
     </div>
