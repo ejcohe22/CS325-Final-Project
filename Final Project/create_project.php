@@ -1,7 +1,12 @@
+<?php
+    // Names: Samuel Munoz
+    // Names: Erik Cohen
+?>
+
 <?php 
     // echo print_r($_POST, true) . "\n";
     try {
-        $db = new PDO("mysql:dbname=ProjectCollection;host=localhost", "sam", "blueMooN#101");
+        $db = new PDO("mysql:dbname=smunoz23;host=localhost", "smunoz23", "blueMooN101");
         // attributes go here
 
         $p_query = "INSERT INTO Projects(name, class_year, class_name, db, demo, imagepath) VALUES(";

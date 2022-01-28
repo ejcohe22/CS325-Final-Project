@@ -1,3 +1,6 @@
+// Names: Samuel Munoz
+// Names: Erik Cohen
+
 $(document).ready(function() {
     $.get("start_session.php", {}, function(data, status) {
         if(status == "successful") {

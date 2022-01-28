@@ -1,3 +1,6 @@
+// Names: Samuel Munoz
+// Names: Erik Cohen
+
 $(document).ready(function(){
     $("#add_backend").click(function(){
         var structure = '<div><input class="project-backend" type="text" name="backend[]" placeholder="Enter a back-end tool used" /> <i class="fa fa-times-circle delete-field"> remove</i><br /></div>';

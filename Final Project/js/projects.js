@@ -1,3 +1,5 @@
+// Names: Samuel Munoz
+// Names: Erik Cohen
 
 let frontend = [];
 let backend = [];
@@ -53,6 +55,7 @@ function create_card(data, status) {
         let backend = [];
         let devs = [];
         let rows = data.split("\n");
+        rows = rows.slice(1, rows.length-1);
         for(let row = 0; row < rows.length-1; row += 4) {
             projects[row / 4] = rows[row].split(",");
             frontend[row / 4] = rows[row + 1].split(",");

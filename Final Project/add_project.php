@@ -1,3 +1,8 @@
+<?php
+    // Names: Samuel Munoz
+    // Names: Erik Cohen
+?>
+
 <?php session_start(); ?>
 
 <!DOCTYPE html>
@@ -17,7 +22,7 @@
     <script src="js/new_project.js" ></script>
     <title>Add New Project</title>
     <?php
-    $db = new PDO("mysql:dbname=ProjectCollection;host:localhost", "sam", "blueMooN#101");
+    $db = new PDO("mysql:dbname=smunoz23;host:localhost", "smunoz23", "blueMooN101");
 
     $dev_list = $db->query("SELECT d.id, d.fname, d.lname FROM Developers d");
     ?>

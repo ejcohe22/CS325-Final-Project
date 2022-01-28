@@ -1,6 +1,11 @@
 <?php
+    // Names: Samuel Munoz
+    // Names: Erik Cohen
+?>
+
+<?php
 try {
-    $db = new PDO("mysql:dbname=ProjectCollection;host=localhost", "sam", "blueMooN#101");
+    $db = new PDO("mysql:dbname=smunoz23;host=localhost", "smunoz23", "blueMooN101");
 
     $id = $_POST['id'];
 
@@ -15,15 +20,16 @@ try {
     $query .= " WHERE id='" . $id . "'";
     $db->exec($query);
 
-    $query = "INSERT INTO ProjectDeveloper(prj_id, dev_id) VALUES ";
+    $query = "INSERT INTO ProjectDeveloper(prj_id, dev_id, role) VALUES ";
     $devs = $_POST['devs'];
     for($i = 0; $i < count($devs); $i++) {
-        $query .= "(" . $id . ", " . $devs[$i] . ")";
+        $query .= "(" . $id . ", " . $devs[$i] . ", '" . $_POST['roles'][$i] . "')";
         if($i != count($devs)-1) {
             $query .= ", ";
         }
     }
     $db->exec($query);
+    // echo $query;
 
     $query = "INSERT INTO ProjectFrontEnd(prj_id, frontend) VALUES ";
     $frontend = $_POST['frontend'];
@@ -46,9 +52,10 @@ try {
     $db->exec($query);
 
     // get data for javascript
-    $rows = $db->query("SELECT fname, lname FROM Developers d INNER JOIN ProjectDeveloper pd ON d.id = pd.dev_id INNER JOIN Projects p ON p.id = pd.prj_id WHERE p.id='" . $id . "'");
+    $rows = $db->query("SELECT d.fname, d.lname, pd.role FROM Developers d INNER JOIN ProjectDeveloper pd ON d.id = pd.dev_id INNER JOIN Projects p ON p.id = pd.prj_id WHERE p.id='" . $id . "'");
     foreach($rows as $row) {
         echo "dev," . $row['fname'] . " " . $row['lname'] . "\n";
+        echo "role," . $row['role'] . "\n";
     }
 
     $rows = $db->query("SELECT db FROM Projects WHERE id='" . $id . "'");

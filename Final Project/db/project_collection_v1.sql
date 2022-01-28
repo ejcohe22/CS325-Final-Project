@@ -1,3 +1,6 @@
+-- Names: Samuel Munoz
+-- Names: Erik Cohen
+
 CREATE DATABASE  IF NOT EXISTS `ProjectCollections` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `ProjectCollections`;
 -- MySQL dump 10.13  Distrib 8.0.27, for Linux (x86_64)

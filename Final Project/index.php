@@ -1,3 +1,8 @@
+<?php
+    // Names: Samuel Munoz
+    // Names: Erik Cohen
+?>
+
 <?php session_start(); ?>
 
 <!DOCTYPE html>

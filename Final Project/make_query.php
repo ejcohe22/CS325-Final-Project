@@ -1,6 +1,11 @@
 <?php
+    // Names: Samuel Munoz
+    // Names: Erik Cohen
+?>
+
+<?php
 // connect to database
-$db = new PDO("mysql:dbname=ProjectCollection;host:localhost", "sam", "blueMooN#101");
+$db = new PDO("mysql:dbname=smunoz23;host:localhost", "smunoz23", "blueMooN101");
 
 // create global variables
 $database = array();

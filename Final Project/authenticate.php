@@ -1,4 +1,9 @@
 <?php
+    // Names: Samuel Munoz
+    // Names: Erik Cohen
+?>
+
+<?php
 session_start();
 // echo "<p style='color: white'>" . print_r($_POST, true) . "</p>";
 
@@ -8,7 +13,7 @@ $password = null;
 
 // check if POST method was sent; if so, check if login credentals are valid
 if( isset($_POST['email']) && isset($_POST['password']) ) {
-    $db = new PDO("mysql:dbname=ProjectCollection;host=localhost", "sam", "blueMooN#101");
+    $db = new PDO("mysql:dbname=smunoz23;host=localhost", "smunoz23", "blueMooN101");
     $email = substr($db->quote($_POST['email']),1,-1);
     $password = substr($db->quote($_POST['password']),1,-1);
     $result = $db->query("SELECT * FROM Administrators WHERE email=\"" . $email . "\" AND password=\"" . $password . "\"")->fetch();

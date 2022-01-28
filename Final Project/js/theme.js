@@ -1,3 +1,5 @@
+// Names: Samuel Munoz
+// Names: Erik Cohen
 
 $(document).ready(function(){
     //navbar

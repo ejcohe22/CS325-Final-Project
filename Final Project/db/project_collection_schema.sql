@@ -1,3 +1,6 @@
+# Names: Samuel Munoz
+# Names: Erik Cohen
+
 # Create Database
 create database ProjectCollection;
 use ProjectCollection;

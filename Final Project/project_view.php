@@ -1,3 +1,8 @@
+<?php
+    // Names: Samuel Munoz
+    // Names: Erik Cohen
+?>
+
 <?php 
     session_start(); 
     // echo "<span style='color: white'>" . print_r($_SESSION, true) . "</span>";
@@ -25,9 +30,9 @@
     <title>Project view</title>
     <?php
         if( isset($_GET['id']) ) {
-            $db = new PDO("mysql:dbname=ProjectCollection;host:localhost", "sam", "blueMooN#101");
+            $db = new PDO("mysql:dbname=smunoz23;host:localhost", "smunoz23", "blueMooN101");
             $project = $db->query("SELECT name, db FROM Projects WHERE id=" . $_GET['id'])->fetch();
-            $devs = $db->query("SELECT d.fname, d.lname FROM Projects p INNER JOIN ProjectDeveloper pd ON pd.prj_id = p.id INNER JOIN Developers d ON d.id = pd.dev_id WHERE p.id=" . $_GET['id']);
+            $devs = $db->query("SELECT d.fname, d.lname, pd.role FROM Projects p INNER JOIN ProjectDeveloper pd ON pd.prj_id = p.id INNER JOIN Developers d ON d.id = pd.dev_id WHERE p.id=" . $_GET['id']);
             $frontend = $db->query("SELECT pf.frontend FROM Projects p INNER JOIN ProjectFrontEnd pf ON pf.prj_id = p.id WHERE p.id=" . $_GET['id']);
             $backend = $db->query("SELECT pb.backend FROM Projects p INNER JOIN ProjectBackEnd pb ON pb.prj_id = p.id WHERE p.id=" . $_GET['id']);
         }
@@ -60,6 +65,19 @@
             }
             return $rtn_str;
         }
+
+        function get_devs($rows) {
+            $rtn_str = "";
+            $row = $rows->fetch();
+            $count = 1;
+            while($row) { 
+                $rtn_str .= "<p class='profile-content indent'>Developer " . $count . ": <span class='editable devs'>" . $row['fname'] . " " . $row['lname'] . "</span></p>";
+                $rtn_str .= "<p class='profile-content super-indent'>Role: <span class='editable roles'>" . $row['role'] . "</span></p>";
+                $row = $rows->fetch(); 
+                $count += 1;
+            }
+            return $rtn_str;
+        }
         // get data from database when this is fixed
         // $name = "Mobile Inventory";
         // $desc = "This is some project";
@@ -68,7 +86,7 @@
         // $frontend = "HTML";
         // $backend = "PHP";
         // $database = "MySQL";
-        $imagepath = "/assets/defaultPrjImg.jpg";
+        $imagepath = "assets/defaultPrjImg.jpg";
     ?>
 </head>
 <body>
@@ -101,10 +119,10 @@
     <div class="project-content">
         <input id="project-id" type="hidden" value="<?= $_GET['id'] ?>" />
         <h1 class="editable"><?= $project['name'] ?></h1>
-        <p class="indent">Developers:&nbsp;<?= get_data($devs, array("fname", "lname"), "devs") ?></p>
-        <p class="indent">Database:&nbsp;<span class="editable database"><?= $project['db'] ?></span></p>
-        <p class="indent">FrontEnd:&nbsp;<?= get_data($frontend, array("frontend"), "frontend") ?></p>
-        <p class="indent">BackEnd:&nbsp;<?= get_data($backend, array("backend"), "backend") ?></p>
+        <?= get_devs($devs) ?>
+        <p class="profile-content indent">Database:&nbsp;<span class="editable database"><?= $project['db'] ?></span></p>
+        <p class="profile-content indent">FrontEnd:&nbsp;<?= get_data($frontend, array("frontend"), "frontend") ?></p>
+        <p class="profile-content indent">BackEnd:&nbsp;<?= get_data($backend, array("backend"), "backend") ?></p>
     </div>
     <div>
         <img class="editableImg" src="<?= $imagepath ?>" />

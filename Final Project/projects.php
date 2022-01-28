@@ -1,3 +1,8 @@
+<?php
+    // Names: Samuel Munoz
+    // Names: Erik Cohen
+?>
+
 <?php session_start(); ?>
 
 <!DOCTYPE html>
@@ -19,7 +24,7 @@
 
     <?php
     /* CONNECT TO DATABASE */
-    $db = new PDO("mysql:dbname=ProjectCollection;host=localhost", "sam", "blueMooN#101");
+    $db = new PDO("mysql:dbname=smunoz23;host=localhost", "smunoz23", "blueMooN101");
 
     // get all projects
     $projects = $db->query("SELECT id, name, class_year, class_name, db FROM Projects");

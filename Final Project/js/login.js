@@ -1,3 +1,6 @@
+// Names: Samuel Munoz
+// Names: Erik Cohen
+
 $(document).ready(function(){
     // password reveal button
     $("#reveal").click(function(){

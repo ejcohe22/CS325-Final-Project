@@ -1,3 +1,6 @@
+// Names: Samuel Munoz
+// Names: Erik Cohen
+
 function fill_class_select() {
     const this_year = new Date().getFullYear();
     for (let i = 0; i < 4; i++) {
@@ -13,19 +16,16 @@ $(document).ready(function(){
         const first = $("#fname").val();
         const last = $("#lname").val();
         const class_year = $("#class").val();
-        console.log(first, last, class_year);
-        $.ajax({
-            type: 'POST',
-            url: "add_dev.php",
-            data: {
-                fname: first,
-                lname: last,
-                year: class_year
-            },
-            success: function(data){
+        // alert(first + " " +  last + " " +  typeof(parseInt(class_year)));
+        $.post("update_project.php", {"fname": first, "lname": last, "year": parseInt(class_year)}, function(data, status) {
+            console.log(status);
+            if(status == "success") {
+                console.log(data);
                 alert("succesfully added developer: " + first + " " + last + " '" + class_year.substring(2,4));
+            } else {
+                console.log("an error has occured");
             }
-            });
+        });
     });
 
     $("#add-admin").click(function(){

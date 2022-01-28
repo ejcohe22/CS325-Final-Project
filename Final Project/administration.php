@@ -1,3 +1,8 @@
+<?php
+    // Names: Samuel Munoz
+    // Names: Erik Cohen
+?>
+
 <?php session_start(); ?>
 
 <!DOCTYPE html>
@@ -39,7 +44,7 @@
 </div>
 <div id="admin-grid">
     <div class="admin-card secondary">
-        <form class="admin" id="admin-create">
+        <form method="post" action="add_admin.php" class="admin" id="admin-create">
             <fieldset>
             <legend> Database Admin User Creation</legend>
                 <label for="email">Email: </label>
@@ -52,7 +57,7 @@
         </form>
     </div>
     <div class="admin-card secondary">
-        <form class="admin" id="dev-create">
+        <form action="add_dev.php" method="post" class="admin" id="dev-create">
             <fieldset>
             <legend> Add Developers</legend>
                 <label for="fname">First Name: </label>
@@ -60,7 +65,7 @@
                 <label for="lname">Last Name: </label>
                 <input id="lname" type="text" name="lname" /> <br />
                 <label for="class">Class year:</label>
-                <select name="class" id="class">
+                <select name="year" id="class">
                 </select><br />
                 <button id="add-dev" class="primary"> Add Developer </button>
             </fieldset>
