@@ -1,6 +1,7 @@
 <?php
     // Names: Samuel Munoz
     // Names: Erik Cohen
+    // Purpose: Add a new developer
 ?>
 
 <?php

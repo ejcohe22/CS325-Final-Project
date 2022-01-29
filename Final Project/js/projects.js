@@ -16,6 +16,7 @@ $(document).ready(function(){
         $("#filter-btn").css("display", "block");
     })
         
+    // make query to load projects when page initially loads
     $.post("make_query.php", {"db": database, "frontend": frontend, "backend": backend}, create_card);
 
     //dynamically get filter value
@@ -48,8 +49,10 @@ $(document).ready(function(){
     });
 });
 
+// create all project cards shown in the projects.php page
 function create_card(data, status) {
     if(status == "success") {
+        // parse through the receieved AJAX data
         let projects = [];
         let frontend = [];
         let backend = [];

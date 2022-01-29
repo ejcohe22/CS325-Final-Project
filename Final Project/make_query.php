@@ -12,7 +12,7 @@ $database = array();
 $frontend = array();
 $backend = array();
 
-// construct query
+// takes the Javascript array of database, frontend, and backend and stores into a PHP array
 if( isset($_POST['db']) ) {
     foreach($_POST['db'] as $word) {
         $database[] = $word;
@@ -29,7 +29,7 @@ if( isset($_POST['backend']) ) {
     }
 }
 
-// construct query
+// start by getting all projects that have use tools selected from the checkboxes
 $p_query = "SELECT DISTINCT p.id FROM Projects p";
 if( count($frontend) > 0 )  {
     $p_query .= " INNER JOIN ProjectFrontEnd pf ON p.id = pf.prj_id";
@@ -64,7 +64,7 @@ foreach($backend as $word) {
     $is_first = false;
 }
 
-// make query to get all project ids
+// make query to get all project ids of project aforementioned
 $row_ids = $db->query($p_query);
 
 // store ids in array
@@ -91,6 +91,7 @@ if( count($ids) == 0 && (count($database) > 0 || count($frontend) > 0 || count($
 }
 
 // make final queries on project basis
+// format data to make readable for javascript
 foreach($ids as $id) {
     $p_query = "SELECT id, name, class_year, class_name, db FROM Projects p WHERE p.id=\"" . $id . "\"";
     $f_query = "SELECT frontend FROM Projects p INNER JOIN ProjectFrontEnd pf ON p.id = pf.prj_id WHERE p.id=\"" . $id . "\"";

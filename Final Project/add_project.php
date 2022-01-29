@@ -78,7 +78,6 @@
                 <option value="CS430">CS430</option>
             </select>
             <br />
-            <!-- some javascript is going to be necessary to be able to add more developers -->
             <label for="project-username">Developers:</label>
             <select id="developer_select">
                 <!-- php query is going to be necessary here to get all developers here from database -->

@@ -56,8 +56,6 @@ if( isset($_POST['email']) && isset($_POST['password']) ) {
     <title>Log In</title>
 
     <?php
-        /* MAKE DATABASE CONNECTION */
-
         // set variables needed below
         $email = null;
         $password = null;

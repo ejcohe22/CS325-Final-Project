@@ -11,6 +11,7 @@ $(document).ready(function(){
        }
     });
 
+    // sends form data to database to check if the user data matches stored adminstrators info
     $("#submit").click(function() {
         $.ajax({
             url: 'authenticate.php',

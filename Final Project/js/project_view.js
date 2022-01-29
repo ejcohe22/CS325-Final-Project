@@ -1,13 +1,18 @@
 // Names: Samuel Munoz
 // Names: Erik Cohen
 
+// global variables to store data temporarily
 let dev_list = [];
 let database = "";
 let frontend_list = [];
 let backend_list = [];
 let dev_role_list = [];
 let is_editing = false;
+
 $(document).ready(function() {
+    // event for handling click event for the edit button
+    // delete, update, and cancel buttons appear
+    // data about the project are placed into text boxes or a select option appears
     $("#edit-btn").click(function(){
         $("#admin-buttons").css("display", "inline-block");
         $("#edit-btn").css("display", "none");
@@ -17,12 +22,17 @@ $(document).ready(function() {
         $.post("get_developers.php", {}, display_edit);
     });
 
+    // event for handling click event for the cancel button
+    // removes all user input boxes and display all data initially on the page 
     $("#cancel").click(function(){
         display_view(dev_list, frontend_list, backend_list, dev_role_list, database);
 
         is_editing = false; 
     });
 
+    // event for handling click event for the submit
+    // removes all input text and displays updated data
+    // NOTE: the update data is retrieved from Javascript arrays and not the database. To see database changes, refresh the page
     $("#submit").click(function(){
         if(is_editing) {
            let devs = $(".dev-field"); 
@@ -75,13 +85,8 @@ $(document).ready(function() {
       });
 });
 
-// function debug(data, status) {
-//     if(status == "success") {
-//     } else {
-//         alert("failure");
-//     }
-// }
-
+// parse AJAX data when data fields get updated
+// parsed data gets passed to the display_view function (hence the pre)
 function pre_display_view(data, status) {
     if(status == "success") {
         console.log(data);
@@ -118,6 +123,7 @@ function pre_display_view(data, status) {
     }
 }
 
+// this creates the HTML elments to allow the user to edit fields of a project
 function display_edit(data, status) {
     if(status == "success") {
         // parse data
@@ -172,6 +178,8 @@ function display_edit(data, status) {
     }
 
 }
+
+// this creates the HTML elements to display the data of the project in a read-only fashion
 function display_view(dl, fl, bl, drl, dd) {
     $("#admin-buttons").css("display", "none");
     $("#edit-btn").css("display", "block");

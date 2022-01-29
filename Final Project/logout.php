@@ -1,6 +1,7 @@
 <?php
     // Names: Samuel Munoz
     // Names: Erik Cohen
+    // Purpose: logs out the user by remove the _SESSION variables
 ?>
 
 <?php

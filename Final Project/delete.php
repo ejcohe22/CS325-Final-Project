@@ -1,6 +1,7 @@
 <?php
     // Names: Samuel Munoz
     // Names: Erik Cohen
+    // Purpose: To delete a project provided its id
 ?>
 
 <?php

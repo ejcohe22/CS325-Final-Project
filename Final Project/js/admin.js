@@ -1,17 +1,11 @@
 // Names: Samuel Munoz
 // Names: Erik Cohen
-
-function fill_class_select() {
-    const this_year = new Date().getFullYear();
-    for (let i = 0; i < 4; i++) {
-        var year = this_year + i;
-        var element = "<option value=" + year + ">" + year + "</option>";
-        $("#class").append(element);
-      }
-}
+// Purpose: To handle events on the
 
 $(document).ready(function(){
     fill_class_select();
+
+    // sends form data to update_project.php to create a new developer
     $("#add-dev").click(function(){
         const first = $("#fname").val();
         const last = $("#lname").val();
@@ -28,6 +22,7 @@ $(document).ready(function(){
         });
     });
 
+    // sends form data to add_admin.php to create a new adminstrator
     $("#add-admin").click(function(){
         const uremail = $("#email").val();
         const secret = $("#password").val();
@@ -44,3 +39,13 @@ $(document).ready(function(){
             });
     });
 });
+
+// adds all class year options to the create developer form
+function fill_class_select() {
+    const this_year = new Date().getFullYear();
+    for (let i = 0; i < 4; i++) {
+        var year = this_year + i;
+        var element = "<option value=" + year + ">" + year + "</option>";
+        $("#class").append(element);
+      }
+}

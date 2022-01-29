@@ -1,6 +1,7 @@
 <?php
     // Names: Samuel Munoz
     // Names: Erik Cohen
+    // Purpose: to add a new administrator to the database
 ?>
 
 <?php

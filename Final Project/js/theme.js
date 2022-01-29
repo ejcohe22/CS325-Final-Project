@@ -1,6 +1,7 @@
 // Names: Samuel Munoz
 // Names: Erik Cohen
 
+// applies styling to nav bar in mobile view
 $(document).ready(function(){
     //navbar
     $("#mobile-menu").click(function(){

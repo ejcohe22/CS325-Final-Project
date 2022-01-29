@@ -1,6 +1,7 @@
 <?php
     // Names: Samuel Munoz
     // Names: Erik Cohen
+    // Purpose: Displays all developers names for AJAX purposes
 ?>
 
 <?php
